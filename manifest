@@ -1,0 +1,371 @@
+__package_update_index
+
+mkdir /home/user/Go
+mkdir /home/user/Go/bin
+mkdir /home/user/bin/
+
+os=$(cat $__global/explorer/os)
+
+#base for compilation
+__package gcc --state present
+__package cmake --state present
+__package automake --state present
+__package autoconf --state present
+__package make --state present
+__package sudo --state present
+
+#extra repos
+case $os in
+	archlinux)
+		__package diffutils --state present
+		__package gettext --state present
+		__package yajl --state present
+		__package git --state present
+		cd /home/user/bin/
+		git clone https://aur.archlinux.org/package-query.git
+		cd package-query/
+		__package pkg-config --state present
+		__package fakeroot --state present
+		sudo -u user makepkg -sci
+		cd /home/user/bin/
+		git clone https://aur.archlinux.org/yaourt.git
+		cd yaourt
+		sudo -u user makepkg -sci
+		yaourt -Syu
+		;;
+
+	fedora)
+		dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+		dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+		;;
+esac
+
+#basic libs
+#emacs pdf utils
+case $os in
+	archlinux)
+		__package libpng --state present
+		__package zlib --state present
+		__package poppler --state present
+		__package poppler-glib --state present
+		__package poppler-data --state present
+		;;
+
+	debian)
+		__package libpng-dev --state present
+		__package zlib1g-dev --state present
+		__package libpoppler-glib-dev --state present
+		__package libpoppler-private-dev --state present
+		;;
+
+	fedora)
+		__package qutebrowser --state present
+		__package zlib-devel --state present
+		__package poppler-glib-devel --state present
+		__package libpng-devel --state present
+		;;
+
+	ubuntu)
+		__package libpng-dev --state present
+		__package zlib1g-dev --state present
+		__package libpoppler-glib-dev --state present
+		__package libpoppler-private-dev --state present
+		;;
+esac
+#imlib for compiling icat
+case $os in
+	archlinux)
+		__package imlib2 --state present
+		;;
+
+	debian)
+		__package libimlib2-dev --state present
+		;;
+
+	fedora)
+		__package imlib2-devel --state present
+		;;
+
+	ubuntu)
+		__package libimlib2-dev --state present
+		;;
+esac
+
+
+#console utils
+#arch repo don't have gpg1 normally
+__package gnupg --state present
+case $os in
+	debian)
+		__package gnupg2 --state present
+		;;
+
+	fedora)
+		__package gnupg2 --state present
+		;;
+
+	ubuntu)
+		__package gnupg2 --state present
+		;;
+esac
+#word checking in emacs
+__package hunspell --state present
+case $os in
+	archlinux)
+		ag=the_silver_searcher
+		__package hunspell-en --state present
+		sudo -u user yaourt -S --noconfirm hunspell-ru
+		;;
+
+	debian)
+		ag=silversearcher-ag
+		#russian disctionary for hunspellb
+		__package hunspell-ru --state present
+		;;
+
+	fedora)
+		ag=the_silver_searcher
+		#russian disctionary for hunspell
+		__package hunspell-ru --state present
+		;;
+
+	ubuntu)
+		ag=silversearcher-ag
+		#russian disctionary for hunspell
+		__package hunspell-ru --state present
+		;;
+esac
+#the silver searcher
+__package "$ag" --state present
+__package pass --state present
+__package tmux --state present
+__package git --state present
+__package feh --state present
+__package shntool --state present
+__package cuetools --state present
+__package curl --state present
+__package wget --state present
+__package htop --state present
+__package cloc --state present
+__package pandoc --state present
+__package unrar --state present
+__package unzip --state present
+__package p7zip --state present
+
+#gui apps
+__package calibre --state present
+__package emacs --state present
+__package firefox --state present
+__package chromium --state present
+case $os in
+	archlinux)
+		__package libreoffice-fresh --state present
+		__package libreoffice-fresh-ru --state present
+		;;
+
+	debian)
+		__package libreoffice --state present
+		__package libreoffice-l10n-ru --state present
+		__package libreoffice-lightproof-ru-ru --state present
+		;;
+
+	fedora)
+		__package libreoffice --state present
+		__package libreoffice-langpack-ru --state present
+		;;
+
+	ubuntu)
+		__package libreoffice --state present
+		__package libreoffice-l10n-ru --state present
+		__package libreoffice-lightproof-ru-ru --state present
+		;;
+esac
+#wine with stuff
+case $os in
+	fedora)
+		dnf -y install http://rpm.playonlinux.com/playonlinux-yum-4-1.noarch.rpm
+		;;
+esac
+__package playonlinux --state present
+
+#fish shell
+__package fish --state present
+chsh -s /usr/bin/fish user
+chsh -s /usr/bin/fish root
+curl -L http://get.oh-my.fish | fish
+omf install bobthefish
+omf install sudope
+omf install z
+git clone http://github.com/techwizrd/fishmarks.git /home/user/.fishmarks
+
+#for development
+case $os in
+	archlinux)
+		ag=the_silver_searcher
+		powerlinefont=powerline-fonts
+		python2=python2-pip
+		python3=python-pip
+		ruby=ruby
+		shellcheck=shellcheck
+	    openjdk=jdk9-openjdk
+		go=go
+		perl=perl
+		latex=texlive-most
+		#only available in arch repos
+		__package kotlin --state present
+		sudo -u user yaourt -S --noconfirm brainfuck
+		;;
+
+	debian)
+		powerlinefont=fonts-powerline
+		python2=python-pip
+		python3=python3-pip
+		ruby=ruby
+		shellcheck=shellcheck
+		openjdk=openjdk-9-jdk
+		go=golang
+		perl=perl
+		latex=texlive-full
+		__package software-properties-common --state present
+		__package g++ --state present
+		__package hsbrainfuck --state present
+		;;
+
+	fedora)
+		powerlinefont=powerline-fonts
+		python2=python-pip
+		python3=python3-pip
+		ruby=ruby-devel
+		shellcheck=ShellCheck
+		openjdk=java-1.8.0-openjdk-devel-debug
+		go=golang
+		perl=cpan
+		latex=texlive-scheme-full
+		__package gcc-c++ --state present
+		__package brainfuck --state present
+		;;
+
+	ubuntu)
+		powerlinefont=fonts-powerline
+		python2=python-pip
+		python3=python3-pip
+		ruby=ruby
+		shellcheck=shellcheck
+		openjdk=openjdk-9-jdk
+		go=golang
+		perl=perl
+		latex=texlive-full
+		__package software-properties-common --state present
+		__package g++ --state present
+		__package hsbrainfuck --state present
+		;;
+esac
+__package "$python2" --state present
+__package "$python3" --state present
+__package "$ruby" --state present
+__package "$go" --state present
+__package "$perl" --state present
+__package "$openjdk" --state present
+__package "$latex" --state present
+__package luarocks --state present
+__package scala --state present
+__package clojure --state present
+#npm in deb based is very funny to install properly
+case $os in
+	archlinux)
+		__package npm --state present
+		;;
+
+	debian)
+		curl -sL https://deb.nodesource.com/setup_8.x | bash -
+		__package nodejs --state present
+		;;
+
+	fedora)
+		__package npm --state present
+		;;
+
+	ubuntu)
+		curl -sL https://deb.nodesource.com/setup_8.x | bash -
+		__package nodejs --state present
+		;;
+esac
+#glide go package manager
+export GOPATH=/home/user/Go
+export LGOBIN=/home/user/Go/bin
+go get -u github.com/gpmgo/gopm
+#shell script linter
+__package "$shellcheck" --state present
+#html and css checking
+__package tidy --state present
+npm install -g csslint
+#js and json linters/indenters
+npm install -g tern
+npm install -g js-beautify
+npm install -g jsonlint
+
+#more utils from foreign repos
+#some nice utils for sql
+__package_pip mycli --state present
+__package_pip pgcli --state present
+#replacement for regular tree
+npm install -g @aweary/alder
+#colored cat output
+cd /home/user/Go/bin/
+./gopm bin github.com/jingweno/ccat
+#cat for images
+cd /home/user/bin/
+git clone https://github.com/atextor/icat.git
+cd icat
+make
+
+#intellij/android studio
+case $os in
+	archlinux)
+		sudo -u user yaourt -S --noconfirm intellij-idea-ultimate-edition
+		sudo -u user yaourt -S --noconfirm android-studio
+		sudo -u user yaourt -S --noconfirm android-sdk
+		;;
+
+	debian)
+		cd /home/user/bin/
+		mkdir AndroidStudio
+		mkdir IntellijIDEA
+		;;
+
+	fedora)
+		cd /home/user/bin/
+		mkdir AndroidStudio
+		mkdir IntellijIDEA
+		;;
+
+	ubuntu)
+		__package ubuntu-make --state present
+		sudo -u user umake android
+		sudo -u user umake ide idea-ultimate
+		;;
+esac
+
+#some powerline
+cd /home/user/bin/
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+__package "$powelinefont" --state present
+
+#proprietary software in flatpaks
+case $os in
+	ubuntu)
+		__apt_ppa ppa:alexlarsson/flatpak --state present
+		__package_update_index
+		;;
+esac
+__package flatpak --state present
+sudo -u user flatpak remote-add --if-not-exists --no-gpg-verify flathub https://flathub.org/repo/flathub.flatpakrepo #i've run into gpg troubles with this repo
+
+sudo -u user flatpak install flathub com.valvesoftware.Steam
+sudo -u user flatpak install flathub com.skype.Client
+
+#emulators
+sudo -u user flatpak install flathub org.ppsspp.PPSSPP
+sudo -u user flatpak install flathub org.libretro.RetroArch
