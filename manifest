@@ -177,6 +177,15 @@ __package unzip --state present
 __package p7zip --state present
 __package source-highlight --state present
 __package colordiff --state present
+case $os in
+	archlinux)
+		__package hub --state present
+		;;
+
+	fedora)
+		__package hub --state present
+		;;
+esac
 
 #fonts
 case $os in
@@ -253,6 +262,9 @@ omf install sudope
 omf install z
 git clone http://github.com/techwizrd/fishmarks.git /home/user/.fishmarks
 curl --create-dirs -o /home/user/bin/up/up.fish https://raw.githubusercontent.com/shannonmoeller/up/master/up.fish
+curl --create-dirs -o /home/user/bin/pip-fish/pip.fish https://raw.githubusercontent.com/d42/fish-pip-completion/master/pip.fish
+git clone https://github.com/barnybug-archive/docker-fish-completion.git /home/user/bin/docker-fish
+curl --create-dirs -o /home/user/bin/hub-fish/hub.fish https://raw.githubusercontent.com/github/hub/master/etc/hub.fish_completion
 
 #for development
 case $os in
@@ -326,7 +338,21 @@ __package "$latex" --state present
 __package luarocks --state present
 __package scala --state present
 __package clojure --state present
-#npm in deb based is very funny to install properly
+__package groovy --state present
+case $os in
+	archlinux)
+		__package groovy-docs --state present
+		;;
+
+	fedora)
+		__package groovy-groovysh --state present
+		__package groovy-groovydoc --state present
+		__package groovy-console --state present
+		__package groovy-servlet --state present
+		__package groovy-docgenerator --state present
+		;;
+esac
+#nodejs in deb based is very funny to install properly
 case $os in
 	archlinux)
 		__package npm --state present
@@ -444,6 +470,27 @@ sudo -u user flatpak install flathub com.skype.Client
 sudo -u user flatpak install flathub org.ppsspp.PPSSPP
 sudo -u user flatpak install flathub org.libretro.RetroArch
 
+#compiled gui apps
+#best terminal for linux
+# case $os in
+# 	archlinux)
+# 		__package termite --state present
+# 		;;
+
+# 	debian)
+# 		__package yadm --state present
+# 		;;
+
+# 	ubuntu)
+# 		__package yadm --state present
+# 		;;
+# esac
+# cd /home/user/bin/
+# git clone --recursive https://github.com/thestinger/termite.git
+# cd termite
+# make
+
+#restore dotfiles
 case $os in
 	archlinux)
 		sudo -u user yaourt -S --noconfirm yadm-git
