@@ -14,6 +14,8 @@ __package automake --state present
 __package autoconf --state present
 __package make --state present
 __package sudo --state present
+__package gperf --state present
+__package bison --state present
 
 #extra repos
 case $os in
@@ -91,7 +93,28 @@ case $os in
 		__package libimlib2-dev --state present
 		;;
 esac
+#for ls with icons
+__package texinfo --state present
+__package texi2html --state present
+case $os in
+	archlinux)
+		__package gettext --state present
+		;;
 
+	debian)
+		__package gettext --state present
+		__package autopoint --state present
+		;;
+
+	fedora)
+		__package gettext-devel --state present
+		;;
+
+	ubuntu)
+		__package gettext --state present
+		__package autopoint --state present
+		;;
+esac
 
 #console utils
 #arch repo don't have gpg1 normally
@@ -152,6 +175,8 @@ __package pandoc --state present
 __package unrar --state present
 __package unzip --state present
 __package p7zip --state present
+__package source-highlight --state present
+__package colordiff --state present
 
 #fonts
 case $os in
@@ -227,6 +252,7 @@ omf install bobthefish
 omf install sudope
 omf install z
 git clone http://github.com/techwizrd/fishmarks.git /home/user/.fishmarks
+curl --create-dirs -o /home/user/bin/up/up.fish https://raw.githubusercontent.com/shannonmoeller/up/master/up.fish
 
 #for development
 case $os in
@@ -320,10 +346,7 @@ case $os in
 		__package nodejs --state present
 		;;
 esac
-#gopm package manager
-export GOPATH=/home/user/Go
-export LGOBIN=/home/user/Go/bin
-go get -u github.com/gpmgo/gopm
+
 #shell script linter
 __package "$shellcheck" --state present
 #html and css checking
@@ -333,6 +356,10 @@ npm install -g csslint
 npm install -g tern
 npm install -g js-beautify
 npm install -g jsonlint
+#css classes autocomplete
+cpan -fi IPC::Run3
+cpan -fi Log::Log4perl
+cpan -i CSS::Watcher
 
 #more utils from foreign repos
 #some nice utils for sql
@@ -342,9 +369,7 @@ __package_pip pgcli --state present
 __package_pip pycp --state present
 #replacement for regular tree
 npm install -g @aweary/alder
-#colored cat output
-cd /home/user/Go/bin/
-./gopm bin github.com/jingweno/ccat
+npm install -g transfer-sh
 #cat for images
 cd /home/user/bin/
 git clone https://github.com/atextor/icat.git
@@ -355,12 +380,16 @@ cd /home/user/bin/
 git clone https://github.com/sebastiencs/icons-in-terminal.git
 cd icons-in-terminal
 ./install.sh
+# Yes, it's fork of coreutils with diff done to ls.
+# And it's actually best solution for ls with icons out there.
+# Everything is compiled into one folder and that ls is alias in shell, no bullshit like messing system coreutils.
 cd /home/user/bin/
 git clone https://github.com/sebastiencs/ls-icons.git
 cd ls-icons
 ./bootstrap
 export CC=clang CXX=clang++
-./configure --prefix=/home/user/bin/ls-icons
+mkdir binary
+./configure --prefix=/home/user/bin/ls-icons/binary
 make
 make install
 
