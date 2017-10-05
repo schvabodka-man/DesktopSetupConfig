@@ -373,6 +373,10 @@ case $os in
 		;;
 esac
 
+#gopm
+export GOPATH=/home/user/Go
+export LGOBIN=/home/user/Go/bin
+go get -u github.com/gpmgo/gopm
 #shell script linter
 __package "$shellcheck" --state present
 #html and css checking
@@ -386,6 +390,8 @@ npm install -g jsonlint
 cpan -fi IPC::Run3
 cpan -fi Log::Log4perl
 cpan -i CSS::Watcher
+#git-pass integration
+git clone https://github.com/languitar/pass-git-helper.git /home/user/bin/pass-git-helper/
 
 #more utils from foreign repos
 #some nice utils for sql
@@ -401,6 +407,9 @@ cd /home/user/bin/
 git clone https://github.com/atextor/icat.git
 cd icat
 make
+#colored cat output
+cd /home/user/Go/bin/
+./gopm bin github.com/jingweno/ccat
 #ls with icons
 cd /home/user/bin/
 git clone https://github.com/sebastiencs/icons-in-terminal.git
@@ -472,23 +481,18 @@ sudo -u user flatpak install flathub org.libretro.RetroArch
 
 #compiled gui apps
 #best terminal for linux
-# case $os in
-# 	archlinux)
-# 		__package termite --state present
-# 		;;
+case $os in
+	archlinux)
+		__package termite --state present
+		;;
+	*)
+		cd /home/user/bin/
+		git clone --recursive https://github.com/thestinger/termite.git
+		cd termite
+		make
+		;;
+esac
 
-# 	debian)
-# 		__package yadm --state present
-# 		;;
-
-# 	ubuntu)
-# 		__package yadm --state present
-# 		;;
-# esac
-# cd /home/user/bin/
-# git clone --recursive https://github.com/thestinger/termite.git
-# cd termite
-# make
 
 #restore dotfiles
 case $os in
