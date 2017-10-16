@@ -1,4 +1,6 @@
+#!/bin/sh
 __package_update_index
+__package_upgrade_all
 
 mkdir /home/user/Go
 mkdir /home/user/Go/bin
@@ -62,7 +64,6 @@ case $os in
 		;;
 
 	fedora)
-		__package qutebrowser --state present
 		__package zlib-devel --state present
 		__package poppler-glib-devel --state present
 		__package libpng-devel --state present
@@ -177,6 +178,9 @@ __package unzip --state present
 __package p7zip --state present
 __package source-highlight --state present
 __package colordiff --state present
+__package xsel --state present
+__package youtube-dl --state present
+__package mpv --state present
 case $os in
 	archlinux)
 		__package hub --state present
@@ -186,6 +190,8 @@ case $os in
 		__package hub --state present
 		;;
 esac
+__package tmux --state present
+git clone https://github.com/tmux-plugins/tpm /home/user/.tmux/plugins/tpm 
 
 #fonts
 case $os in
@@ -221,6 +227,21 @@ __package calibre --state present
 __package emacs --state present
 __package firefox --state present
 __package chromium --state present
+__package qutebrowser --state present
+case $os in
+
+	debian)
+		__package gitk --state present
+		;;
+
+	fedora)
+		__package gitk --state present
+		;;
+
+	ubuntu)
+		__package gitk --state present
+		;;
+esac
 case $os in
 	archlinux)
 		__package libreoffice-fresh --state present
@@ -265,6 +286,8 @@ curl --create-dirs -o /home/user/bin/up/up.fish https://raw.githubusercontent.co
 curl --create-dirs -o /home/user/bin/pip-fish/pip.fish https://raw.githubusercontent.com/d42/fish-pip-completion/master/pip.fish
 git clone https://github.com/barnybug-archive/docker-fish-completion.git /home/user/bin/docker-fish
 curl --create-dirs -o /home/user/bin/hub-fish/hub.fish https://raw.githubusercontent.com/github/hub/master/etc/hub.fish_completion
+#transfer.sh alias
+curl --create-dirs -o /home/user/bin/transfersh/transfer.fish https://gist.githubusercontent.com/nl5887/a511f172d3fb3cd0e42d/raw/d2f8a07aca44aa612b6844d8d5e53a05f5da3420/transfer.fish
 
 #for development
 case $os in
@@ -279,6 +302,7 @@ case $os in
 		go=go
 		perl=perl
 		latex=texlive-most
+		rustcargo=rust
 		#only available in arch repos
 		__package kotlin --state present
 		sudo -u user yaourt -S --noconfirm brainfuck
@@ -294,6 +318,7 @@ case $os in
 		go=golang
 		perl=perl
 		latex=texlive-full
+		rustcargo=cargo
 		__package software-properties-common --state present
 		__package g++ --state present
 		__package hsbrainfuck --state present
@@ -309,8 +334,10 @@ case $os in
 		go=golang
 		perl=cpan
 		latex=texlive-scheme-full
+		rustcargo=cargo
 		__package gcc-c++ --state present
 		__package brainfuck --state present
+		__package texlive-collection-langcyrillic --state present
 		;;
 
 	ubuntu)
@@ -323,6 +350,7 @@ case $os in
 		go=golang
 		perl=perl
 		latex=texlive-full
+		rustcargo=cargo
 		__package software-properties-common --state present
 		__package g++ --state present
 		__package hsbrainfuck --state present
@@ -335,6 +363,7 @@ __package "$go" --state present
 __package "$perl" --state present
 __package "$openjdk" --state present
 __package "$latex" --state present
+__package "$rustcargo" --state present
 __package luarocks --state present
 __package scala --state present
 __package clojure --state present
@@ -392,16 +421,34 @@ cpan -fi Log::Log4perl
 cpan -i CSS::Watcher
 #git-pass integration
 git clone https://github.com/languitar/pass-git-helper.git /home/user/bin/pass-git-helper/
+#urlview for tmux
+case $os in
+	archlinux)
+		sudo -u user yaourt -S --noconfirm urlview
+		;;
+
+	fedora)
+		__package urlview --state present
+		;;
+
+esac
 
 #more utils from foreign repos
 #some nice utils for sql
 __package_pip mycli --state present
 __package_pip pgcli --state present
+#better find command
+sudo -u user cargo install fd-find
+#safer rm
+__package_pip trash-cli --state present
 #mv/cp with progress bar
 __package_pip pycp --state present
 #replacement for regular tree
 npm install -g @aweary/alder
-npm install -g transfer-sh
+#cli fuzzy finder
+git clone --depth 1 https://github.com/junegunn/fzf.git /home/user/bin/fzf
+cd /home/user/bin/fzf
+./install
 #cat for images
 cd /home/user/bin/
 git clone https://github.com/atextor/icat.git
@@ -427,6 +474,21 @@ mkdir binary
 ./configure --prefix=/home/user/bin/ls-icons/binary
 make
 make install
+#colorized output for many of things
+case $os in
+	fedora)
+		cd /home/user/bin/
+		git clone https://github.com/garabik/grc.git
+		cd grc
+		./install.sh
+		;;
+
+	*)
+		__package grc --state present
+		;;
+esac
+__package_rubygem rmeetup --state present
+__package_rubygem meetup-cli --state present
 
 #intellij/android studio
 case $os in
@@ -479,37 +541,21 @@ sudo -u user flatpak install flathub com.skype.Client
 sudo -u user flatpak install flathub org.ppsspp.PPSSPP
 sudo -u user flatpak install flathub org.libretro.RetroArch
 
-#compiled gui apps
-#best terminal for linux
-case $os in
-	archlinux)
-		__package termite --state present
-		;;
-	*)
-		cd /home/user/bin/
-		git clone --recursive https://github.com/thestinger/termite.git
-		cd termite
-		make
-		;;
-esac
-
-
 #restore dotfiles
 case $os in
 	archlinux)
 		sudo -u user yaourt -S --noconfirm yadm-git
 		;;
 
-	debian)
-		__package yadm --state present
-		;;
-
-	fedora)
-		__package yadm --state present
-		;;
-
-	ubuntu)
+	*)
 		__package yadm --state present
 		;;
 esac
 sudo -u user yadm clone https://github.com/schvabodka-man/Dotfiles.git
+
+#st terminal. the case is why i'm compiling it after everything is because it's configured via C header file, not by usual config
+cd /home/user/bin/
+git clone git://git.suckless.org/st
+cd st
+cp /home/user/.config/st/config.h /home/user/bin/st
+make
