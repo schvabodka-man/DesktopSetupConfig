@@ -2,6 +2,8 @@
 __package_update_index
 __package_upgrade_all
 
+useradd -d /home/user -m user
+
 mkdir /home/user/Go
 mkdir /home/user/Go/bin
 mkdir /home/user/bin/
@@ -111,7 +113,7 @@ case $os in
 		__package gettext-devel --state present
 		;;
 
-	ubuntu)
+	ubuntut)
 		__package gettext --state present
 		__package autopoint --state present
 		;;
@@ -165,6 +167,8 @@ __package "$ag" --state present
 __package pass --state present
 __package tmux --state present
 __package git --state present
+__package mercurial --state present
+__package fossil --state present
 __package feh --state present
 __package shntool --state present
 __package cuetools --state present
@@ -180,7 +184,26 @@ __package source-highlight --state present
 __package colordiff --state present
 __package xsel --state present
 __package youtube-dl --state present
+__package scrot --state present
 __package mpv --state present
+__package beets --state present
+__package dzen2 --state present
+__package aria2 --state present
+__package i3lock --state present
+__package mediainfo --state present
+case $os in
+	debian)
+		__package beets-doc --state present
+		;;
+
+	fedora)
+		__package beets-doc --state present
+		__package beets-plugins --state present
+		;;
+	ubuntu)
+		__package beets-doc --state present
+		;;
+esac
 case $os in
 	archlinux)
 		__package hub --state present
@@ -192,6 +215,33 @@ case $os in
 esac
 __package tmux --state present
 git clone https://github.com/tmux-plugins/tpm /home/user/.tmux/plugins/tpm 
+
+case $os in
+	archlinux)
+		sudo -u user yaourt -S --noconfirm transmission-remote-gui-gtk2
+		__package transmission-cli --state present
+		;;
+
+	debian)
+		__package transmission-remote-gtk --state present
+		__package transmission-daemon --state present
+		;;
+
+	fedora)
+		__package transmission-remote-gtk --state present
+		__package transmission-daemon --state present
+		;;
+
+	ubuntu)
+		__package transmission-remote-gtk --state present
+		__package transmission-daemon --state present
+		;;
+esac
+
+#ansiweather for the scripts
+__package jq --state present
+__package bc --state present
+git clone https://github.com/fcambus/ansiweather.git /home/user/bin/ansiweather
 
 #fonts
 case $os in
@@ -225,11 +275,30 @@ esac
 #gui apps
 __package calibre --state present
 __package emacs --state present
+__package xfce4-terminal --state present
+#best im
+__package pidgin --state present
+case $os in
+	fedora)
+		__package purple-libsteam --state present
+		__package purple-telegram --state present
+		__package purple-discord --state present
+		__package purple-hangouts --state present
+		__package purple-facebook --state present
+		__package purple-skypeweb --state present
+		;;
+
+	archlinux)
+		__package purple-facebook --state present
+		__package purple-skypeweb --state present
+		;;
+esac
+#for development
 __package firefox --state present
 __package chromium --state present
+#for using
 __package qutebrowser --state present
 case $os in
-
 	debian)
 		__package gitk --state present
 		;;
@@ -458,22 +527,28 @@ make
 cd /home/user/Go/bin/
 ./gopm bin github.com/jingweno/ccat
 #ls with icons
-cd /home/user/bin/
-git clone https://github.com/sebastiencs/icons-in-terminal.git
-cd icons-in-terminal
-./install.sh
+# cd /home/user/bin/
+# git clone https://github.com/sebastiencs/icons-in-terminal.git
+# cd icons-in-terminal
+# ./install.sh
 # Yes, it's fork of coreutils with diff done to ls.
 # And it's actually best solution for ls with icons out there.
 # Everything is compiled into one folder and that ls is alias in shell, no bullshit like messing system coreutils.
+# cd /home/user/bin/
+# git clone https://github.com/sebastiencs/ls-icons.git
+# cd ls-icons
+# ./bootstrap
+# export CC=clang CXX=clang++
+# mkdir binary
+# ./configure --prefix=/home/user/bin/ls-icons/binary
+# make
+# make install
+__package_rubygem colorls --state present
+#ned this for displaying layout in dzen2
 cd /home/user/bin/
-git clone https://github.com/sebastiencs/ls-icons.git
-cd ls-icons
-./bootstrap
-export CC=clang CXX=clang++
-mkdir binary
-./configure --prefix=/home/user/bin/ls-icons/binary
+git clone https://github.com/nonpop/xkblayout-state.git
+cd xkblayout-state
 make
-make install
 #colorized output for many of things
 case $os in
 	fedora)
@@ -489,6 +564,11 @@ case $os in
 esac
 __package_rubygem rmeetup --state present
 __package_rubygem meetup-cli --state present
+
+cd /home/user/bin/
+wget https://raw.githubusercontent.com/aria2/aria2/master/doc/xmlrpc/aria2rpc -P aria2rpc
+cd aria2rpc
+chmod +x aria2rpc
 
 #intellij/android studio
 case $os in
@@ -531,15 +611,26 @@ case $os in
 		__package_update_index
 		;;
 esac
-__package flatpak --state present
-sudo -u user flatpak remote-add --if-not-exists --no-gpg-verify flathub https://flathub.org/repo/flathub.flatpakrepo #i've run into gpg troubles with this repo
+# __package flatpak --state present
+# sudo -u user flatpak remote-add --if-not-exists --no-gpg-verify flathub https://flathub.org/repo/flathub.flatpakrepo #i've run into gpg troubles with this repo
 
-sudo -u user flatpak install flathub com.valvesoftware.Steam
-sudo -u user flatpak install flathub com.skype.Client
+# sudo -u user flatpak install flathub com.valvesoftware.Steam
+# sudo -u user flatpak install flathub com.skype.Client
 
-#emulators in flatpaks
-sudo -u user flatpak install flathub org.ppsspp.PPSSPP
-sudo -u user flatpak install flathub org.libretro.RetroArch
+# #emulators in flatpaks
+# sudo -u user flatpak install flathub org.ppsspp.PPSSPP
+# sudo -u user flatpak install flathub org.libretro.RetroArch
+
+# cd /home/user/bin/
+# mkdir mpv-native-client
+# wget https://github.com/belaviyo/native-client/releases/download/0.3.3/linux.zip -P mpv-native-client
+# cd mpv-native-client
+# unzip linux.zip
+# ./install.sh
+
+#non botnes dns
+nmcli connection mod "Wi-Fi connection 1" ipv4.dns "82.229.244.191 78.159.101.37 207.192.69.155"
+nmcli connection mod "docker0" ipv4.dns "82.229.244.191 78.159.101.37 207.192.69.155"
 
 #restore dotfiles
 case $os in
@@ -554,8 +645,8 @@ esac
 sudo -u user yadm clone https://github.com/schvabodka-man/Dotfiles.git
 
 #st terminal. the case is why i'm compiling it after everything is because it's configured via C header file, not by usual config
-cd /home/user/bin/
-git clone git://git.suckless.org/st
-cd st
-cp /home/user/.config/st/config.h /home/user/bin/st
-make
+# cd /home/user/bin/
+# git clone git://git.suckless.org/st
+# cd st
+# cp /home/user/.config/st/config.h /home/user/bin/st
+# make
