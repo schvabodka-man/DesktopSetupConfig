@@ -1,29 +1,29 @@
 #!/bin/sh
 folder=$PWD
 
-sh ~/Coding/desktop/base-setup.sh
+sh $folder/base-setup.sh
 
-sh ~/Coding/desktop/base-compilers.sh
-sh ~/Coding/desktop/basic-libs.sh
+sh $folder/base-compilers.sh
+sh $folder/basic-libs.sh
 
-sh ~/Coding/desktop/extra-repos.sh
+sh $folder/extra-repos.sh
 
-sh ~/Coding/desktop/cli-utils.sh
-sh ~/Coding/desktop/development.sh
-sh ~/Coding/desktop/gui-apps.sh
+sh $folder/cli-utils.sh
+sh $folder/development.sh
+sh $folder/gui-apps.sh
 
-sh ~/Coding/desktop/development-utils.sh
-sh ~/Coding/desktop/third-party-cli.sh
+sh $folder/development-utils.sh
+sh $folder/third-party-cli.sh
 
-sh ~/Coding/desktop/fonts.sh
+sh $folder/fonts.sh
 
-sh ~/Coding/desktop/fish-shell.sh
-sh ~/Coding/desktop/vivaldi.sh
-sh ~/Coding/desktop/micro-editor.sh
-sh ~/Coding/desktop/browser-native-client.sh
-sh ~/Coding/desktop/ide.sh
+sh $folder/fish-shell.sh
+sh $folder/vivaldi.sh
+sh $folder/micro-editor.sh
+sh $folder/browser-native-client.sh
+sh $folder/ide.sh
 
-sh ~/Coding/desktop/flatpaks.sh
+sh $folder/flatpaks.sh
 
-sh ~/Coding/desktop/dns-settings.sh
-sh ~/Coding/desktop/restore-configs.sh
+sh $folder/dns-settings.sh
+sh $folder/restore-configs.sh
