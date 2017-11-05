@@ -22,6 +22,9 @@ case $os in
 		pacman --noconfirm -S clojure
 		pacman --noconfirm -S groovy
 		pacman --noconfirm -S tidy
+		pacman --noconfirm -S maven
+		pacman --noconfirm -S gradle
+		pacman --noconfirm -S sbt
 		;;
 
 	Debian)
@@ -42,6 +45,9 @@ case $os in
 		apt-get -y install clojure
 		apt-get -y install groovy
 		apt-get -y install tidy
+		apt-get -y install gradle
+		apt-get -y install maven
+		apt-get -y install sbt
 		;;
 
 	Fedora)
@@ -62,6 +68,9 @@ case $os in
 		dnf -y install clojure
 		dnf -y install groovy
 		dnf -y install tidy
+		dnf -y install maven
+		dnf -y install gradle
+		dnf -y install sbt
 		;;
 
 	Ubuntu)
@@ -82,6 +91,9 @@ case $os in
 		apt-get -y install clojure
 		apt-get -y install groovy
 		apt-get -y install tidy
+		apt-get -y install gradle
+		apt-get -y install maven
+		apt-get -y install sbt
 		;;
 esac
 
@@ -118,3 +130,7 @@ case $os in
 		apt-get -y install nodejs
 		;;
 esac
+
+#there are no lein in repos, stuff happens
+curl -s "https://get.sdkman.io" | bash
+sdk install leiningen

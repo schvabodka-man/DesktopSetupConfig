@@ -83,6 +83,7 @@ case $os in
 		pacman --noconfirm -S mediainfo
 		pacman --noconfirm -S tmux
 		pacman --noconfirm -S offlineimap
+		pacman --noconfirm -S w3m
 		;;
 
 	Debian)
@@ -114,6 +115,8 @@ case $os in
 		apt-get -y install mediainfo
 		apt-get -y install tmux
 		apt-get -y install offlineimap
+		apt-get -y install w3m
+		apt-get -y install w3m-img
 		;;
 
 	Fedora)
@@ -145,6 +148,8 @@ case $os in
 		dnf -y install mediainfo
 		dnf -y install tmux
 		dnf -y install offlineimap
+		dnf -y install w3m
+		dnf -y install w3m-img
 		;;
 
 	Ubuntu)
@@ -176,6 +181,8 @@ case $os in
 		apt-get -y install mediainfo
 		apt-get -y install tmux
 		apt-get -y install offlineimap
+		apt-get -y install w3m
+		apt-get -y install w3m-img
 		;;
 esac
 

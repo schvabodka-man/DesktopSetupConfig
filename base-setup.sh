@@ -25,3 +25,5 @@ mkdir /home/user/Go/bin
 mkdir /home/user/bin/
 mkdir /home/user/Maildir
 mkdir /home/user/Maildir/Gmail/
+mkdir /home/user/.emacs.d/
+touch /home/user/.emacs.d/w3m-session

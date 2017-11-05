@@ -15,6 +15,9 @@ pip install trash-cli
 #mv/cp with progress bar
 pip install pycp
 
+#asciinema
+pip3 install asciinema
+
 #replacement for regular tree
 npm install -g @aweary/alder
 
