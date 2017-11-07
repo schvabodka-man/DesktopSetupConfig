@@ -9,6 +9,7 @@ case $os in
 		pacman -S --noconfirm emacs
 		pacman -S --noconfirm xfce4-terminal
 		pacman -S --noconfirm pidgin
+		pacman -S --noconfirm gimp
 		;;
 
 	Debian)
@@ -16,6 +17,7 @@ case $os in
 		apt-get -y install emacs
 		apt-get -y install xfce4-terminal
 		apt-get -y install pidgin
+		apt-get -y install gimp
 		;;
 
 	Fedora)
@@ -23,6 +25,7 @@ case $os in
 		dnf -y install emacs
 		dnf -y install xfce4-terminal
 		dnf -y install pidgin
+		dnf -y install gimp
 		;;
 
 	Ubuntu)
@@ -30,6 +33,7 @@ case $os in
 		apt-get -y install emacs
 		apt-get -y install xfce4-terminal
 		apt-get -y install pidgin
+		apt-get -y install gimp
 		;;
 esac
 case $os in
