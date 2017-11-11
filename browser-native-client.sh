@@ -1,5 +1,5 @@
 #!/bin/sh
-cd /home/user/bin/
+cd ~/bin/
 mkdir native-client
 wget https://github.com/andy-portmen/native-client/releases/download/0.6.3/linux.zip -P native-client
 cd native-client

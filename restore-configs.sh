@@ -5,20 +5,21 @@ os=$(lsb_release -is)
 #restore dotfiles
 case $os in
 	Arch)
-		sudo -u user yaourt -S --noconfirm yadm-git
+		yaourt -S --noconfirm yadm-git
 		;;
 
 	Debian)
-		apt-get -y install yadm
+		sudo apt-get -y install yadm
 		;;
 
 	Fedora)
-		dnf -y copr enable thelocehiliosan/yadm
-		dnf -y install yadm
+		sudo dnf -y copr enable thelocehiliosan/yadm
+		sudo dnf -y install yadm
 		;;
 
 	Ubuntu)
-		apt-get -y install yadm
+		sudo apt-get -y install yadm
 		;;
 esac
-sudo -u user yadm clone https://github.com/schvabodka-man/Dotfiles.git
+cd ~/
+yadm clone https://github.com/schvabodka-man/Dotfiles.git

@@ -4,300 +4,300 @@ os=$(lsb_release -is)
 
 case $os in
 	Arch)
-		pacman --noconfirm -S gnupg --state present
+		sudo pacman --noconfirm -S gnupg --state present
 		;;
 
 	Debian)
-		apt-get -y install gnupg2
-		apt-get -y install gnupg
+		sudo apt-get -y install gnupg2
+		sudo apt-get -y install gnupg
 		;;
 
 	Fedora)
-		dnf -y install gnupg2
-		dnf -y install gnupg
+		sudo dnf -y install gnupg2
+		sudo dnf -y install gnupg
 		;;
 
 	Ubuntu)
-		apt-get -y install gnupg2
-		apt-get -y install gnupg
+		sudo apt-get -y install gnupg2
+		sudo apt-get -y install gnupg
 		;;
 esac
 
 case $os in
 	Arch)
-		pacman --noconfirm -S the_silver_searcher
-		pacman --noconfirm -S hunspell
-		pacman --noconfirm -S hunspell-en
-		sudo -u user yaourt -S --noconfirm hunspell-ru
+		sudo pacman --noconfirm -S the_silver_searcher
+		sudo pacman --noconfirm -S hunspell
+		sudo pacman --noconfirm -S hunspell-en
+		yaourt -S --noconfirm hunspell-ru
 		;;
 
 	Debian)
-		apt-get -y install silversearcher-ag
-		apt-get -y install hunspell
+		sudo apt-get -y install silversearcher-ag
+		sudo apt-get -y install hunspell
 		#russian disctionary for hunspellb
-		apt-get -y install hunspell-ru
+		sudo apt-get -y install hunspell-ru
 		;;
 
 	Fedora)
-		dnf -y install the_silver_searcher
-		dnf -y install hunspell
+		sudo dnf -y install the_silver_searcher
+		sudo dnf -y install hunspell
 		#russian disctionary for hunspell
-		dnf -y install hunspell-ru
+		sudo dnf -y install hunspell-ru
 		;;
 
 	Ubuntu)
-		apt-get -y install silversearcher-ag
-		apt-get -y install hunspell
+		sudo apt-get -y install silversearcher-ag
+		sudo apt-get -y install hunspell
 		#russian disctionary for hunspell
-		apt-get -y install hunspell-ru
+		sudo apt-get -y install hunspell-ru
 		;;
 esac
 
 case $os in
 	Arch)
-		pacman --noconfirm -S pass
-		pacman --noconfirm -S tmux
-		pacman --noconfirm -S git
-		pacman --noconfirm -S mercurial
-		pacman --noconfirm -S fossil
-		pacman --noconfirm -S feh
-		pacman --noconfirm -S shntool
-		pacman --noconfirm -S cuetools
-		pacman --noconfirm -S curl
-		pacman --noconfirm -S wget
-		pacman --noconfirm -S htop
-		pacman --noconfirm -S cloc
-		pacman --noconfirm -S pandoc
-		pacman --noconfirm -S unrar
-		pacman --noconfirm -S unzip
-		pacman --noconfirm -S p7zip
-		pacman --noconfirm -S source-highlight
-		pacman --noconfirm -S colordiff
-		pacman --noconfirm -S xsel
-		pacman --noconfirm -S youtube-dl
-		pacman --noconfirm -S scrot
-		pacman --noconfirm -S mpv
-		pacman --noconfirm -S dzen2
-		pacman --noconfirm -S aria2
-		pacman --noconfirm -S i3lock
-		pacman --noconfirm -S mediainfo
-		pacman --noconfirm -S tmux
-		pacman --noconfirm -S offlineimap
-		pacman --noconfirm -S w3m
+		sudo pacman --noconfirm -S pass
+		sudo pacman --noconfirm -S tmux
+		sudo pacman --noconfirm -S git
+		sudo pacman --noconfirm -S mercurial
+		sudo pacman --noconfirm -S fossil
+		sudo pacman --noconfirm -S feh
+		sudo pacman --noconfirm -S shntool
+		sudo pacman --noconfirm -S cuetools
+		sudo pacman --noconfirm -S curl
+		sudo pacman --noconfirm -S wget
+		sudo pacman --noconfirm -S htop
+		sudo pacman --noconfirm -S cloc
+		sudo pacman --noconfirm -S pandoc
+		sudo pacman --noconfirm -S unrar
+		sudo pacman --noconfirm -S unzip
+		sudo pacman --noconfirm -S p7zip
+		sudo pacman --noconfirm -S source-highlight
+		sudo pacman --noconfirm -S colordiff
+		sudo pacman --noconfirm -S xsel
+		sudo pacman --noconfirm -S youtube-dl
+		sudo pacman --noconfirm -S scrot
+		sudo pacman --noconfirm -S mpv
+		sudo pacman --noconfirm -S dzen2
+		sudo pacman --noconfirm -S aria2
+		sudo pacman --noconfirm -S i3lock
+		sudo pacman --noconfirm -S mediainfo
+		sudo pacman --noconfirm -S tmux
+		sudo pacman --noconfirm -S offlineimap
+		sudo pacman --noconfirm -S w3m
 		;;
 
 	Debian)
-		apt-get -y install pass
-		apt-get -y install tmux
-		apt-get -y install git
-		apt-get -y install mercurial
-		apt-get -y install fossil
-		apt-get -y install feh
-		apt-get -y install shntool
-		apt-get -y install cuetools
-		apt-get -y install curl
-		apt-get -y install wget
-		apt-get -y install htop
-		apt-get -y install cloc
-		apt-get -y install pandoc
-		apt-get -y install unrar
-		apt-get -y install unzip
-		apt-get -y install p7zip
-		apt-get -y install source-highlight
-		apt-get -y install colordiff
-		apt-get -y install xsel
-		apt-get -y install youtube-dl
-		apt-get -y install scrot
-		apt-get -y install mpv
-		apt-get -y install dzen2
-		apt-get -y install aria2
-		apt-get -y install i3lock
-		apt-get -y install mediainfo
-		apt-get -y install tmux
-		apt-get -y install offlineimap
-		apt-get -y install w3m
-		apt-get -y install w3m-img
+		sudo apt-get -y install pass
+		sudo apt-get -y install tmux
+		sudo apt-get -y install git
+		sudo apt-get -y install mercurial
+		sudo apt-get -y install fossil
+		sudo apt-get -y install feh
+		sudo apt-get -y install shntool
+		sudo apt-get -y install cuetools
+		sudo apt-get -y install curl
+		sudo apt-get -y install wget
+		sudo apt-get -y install htop
+		sudo apt-get -y install cloc
+		sudo apt-get -y install pandoc
+		sudo apt-get -y install unrar
+		sudo apt-get -y install unzip
+		sudo apt-get -y install p7zip
+		sudo apt-get -y install source-highlight
+		sudo apt-get -y install colordiff
+		sudo apt-get -y install xsel
+		sudo apt-get -y install youtube-dl
+		sudo apt-get -y install scrot
+		sudo apt-get -y install mpv
+		sudo apt-get -y install dzen2
+		sudo apt-get -y install aria2
+		sudo apt-get -y install i3lock
+		sudo apt-get -y install mediainfo
+		sudo apt-get -y install tmux
+		sudo apt-get -y install offlineimap
+		sudo apt-get -y install w3m
+		sudo apt-get -y install w3m-img
 		;;
 
 	Fedora)
-		dnf -y install pass
-		dnf -y install tmux
-		dnf -y install git
-		dnf -y install mercurial
-		dnf -y install fossil
-		dnf -y install feh
-		dnf -y install shntool
-		dnf -y install cuetools
-		dnf -y install curl
-		dnf -y install wget
-		dnf -y install htop
-		dnf -y install cloc
-		dnf -y install pandoc
-		dnf -y install unrar
-		dnf -y install unzip
-		dnf -y install p7zip
-		dnf -y install source-highlight
-		dnf -y install colordiff
-		dnf -y install xsel
-		dnf -y install youtube-dl
-		dnf -y install scrot
-		dnf -y install mpv
-		dnf -y install dzen2
-		dnf -y install aria2
-		dnf -y install i3lock
-		dnf -y install mediainfo
-		dnf -y install tmux
-		dnf -y install offlineimap
-		dnf -y install w3m
-		dnf -y install w3m-img
+		sudo dnf -y install pass
+		sudo dnf -y install tmux
+		sudo dnf -y install git
+		sudo dnf -y install mercurial
+		sudo dnf -y install fossil
+		sudo dnf -y install feh
+		sudo dnf -y install shntool
+		sudo dnf -y install cuetools
+		sudo dnf -y install curl
+		sudo dnf -y install wget
+		sudo dnf -y install htop
+		sudo dnf -y install cloc
+		sudo dnf -y install pandoc
+		sudo dnf -y install unrar
+		sudo dnf -y install unzip
+		sudo dnf -y install p7zip
+		sudo dnf -y install source-highlight
+		sudo dnf -y install colordiff
+		sudo dnf -y install xsel
+		sudo dnf -y install youtube-dl
+		sudo dnf -y install scrot
+		sudo dnf -y install mpv
+		sudo dnf -y install dzen2
+		sudo dnf -y install aria2
+		sudo dnf -y install i3lock
+		sudo dnf -y install mediainfo
+		sudo dnf -y install tmux
+		sudo dnf -y install offlineimap
+		sudo dnf -y install w3m
+		sudo dnf -y install w3m-img
 		;;
 
 	Ubuntu)
-		apt-get -y install pass
-		apt-get -y install tmux
-		apt-get -y install git
-		apt-get -y install mercurial
-		apt-get -y install fossil
-		apt-get -y install feh
-		apt-get -y install shntool
-		apt-get -y install cuetools
-		apt-get -y install curl
-		apt-get -y install wget
-		apt-get -y install htop
-		apt-get -y install cloc
-		apt-get -y install pandoc
-		apt-get -y install unrar
-		apt-get -y install unzip
-		apt-get -y install p7zip
-		apt-get -y install source-highlight
-		apt-get -y install colordiff
-		apt-get -y install xsel
-		apt-get -y install youtube-dl
-		apt-get -y install scrot
-		apt-get -y install mpv
-		apt-get -y install dzen2
-		apt-get -y install aria2
-		apt-get -y install i3lock
-		apt-get -y install mediainfo
-		apt-get -y install tmux
-		apt-get -y install offlineimap
-		apt-get -y install w3m
-		apt-get -y install w3m-img
+		sudo apt-get -y install pass
+		sudo apt-get -y install tmux
+		sudo apt-get -y install git
+		sudo apt-get -y install mercurial
+		sudo apt-get -y install fossil
+		sudo apt-get -y install feh
+		sudo apt-get -y install shntool
+		sudo apt-get -y install cuetools
+		sudo apt-get -y install curl
+		sudo apt-get -y install wget
+		sudo apt-get -y install htop
+		sudo apt-get -y install cloc
+		sudo apt-get -y install pandoc
+		sudo apt-get -y install unrar
+		sudo apt-get -y install unzip
+		sudo apt-get -y install p7zip
+		sudo apt-get -y install source-highlight
+		sudo apt-get -y install colordiff
+		sudo apt-get -y install xsel
+		sudo apt-get -y install youtube-dl
+		sudo apt-get -y install scrot
+		sudo apt-get -y install mpv
+		sudo apt-get -y install dzen2
+		sudo apt-get -y install aria2
+		sudo apt-get -y install i3lock
+		sudo apt-get -y install mediainfo
+		sudo apt-get -y install tmux
+		sudo apt-get -y install offlineimap
+		sudo apt-get -y install w3m
+		sudo apt-get -y install w3m-img
 		;;
 esac
 
 case $os in
 	Arch)
-		pacman --noconfirm -S mu
+		sudo pacman --noconfirm -S mu
 		;;
 
 	Debian)
-		apt-get -y install maildir-utils
-		apt-get -y install mu4e
+		sudo apt-get -y install maildir-utils
+		sudo apt-get -y install mu4e
 		;;
 
 	Fedora)
-		dnf -y copr enable jamesd/maildir-utils
-		dnf -y install maildir-utils emacs-mu4e
+		sudo dnf -y copr enable jamesd/maildir-utils
+		sudo dnf -y install maildir-utils emacs-mu4e
 		;;
 
 	Ubuntu)
-		apt-get -y install maildir-utils
-		apt-get -y install mu4e
+		sudo apt-get -y install maildir-utils
+		sudo apt-get -y install mu4e
 		;;
 esac
 case $os in
 	Arch)
-		pacman --noconfirm -S beets
+		sudo pacman --noconfirm -S beets
 		;;
 
 	Debian)
-		apt-get -y install beets
-		apt-get -y install beets-doc
+		sudo apt-get -y install beets
+		sudo apt-get -y install beets-doc
 		;;
 
 	Fedora)
-		dnf -y install beets
-		dnf -y install beets-doc
-		dnf -y install beets-plugins
+		sudo dnf -y install beets
+		sudo dnf -y install beets-doc
+		sudo dnf -y install beets-plugins
 		;;
 
 	Ubuntu)
-		apt-get -y install beets
-		apt-get -y install beets-doc
+		sudo apt-get -y install beets
+		sudo apt-get -y install beets-doc
 		;;
 esac
 case $os in
 	Arch)
-		pacman --noconfirm -S hub
+		sudo pacman --noconfirm -S hub
 		;;
 
 	Fedora)
-		dnf -y install install hub
+		sudo dnf -y install install hub
 		;;
 esac
 
 case $os in
 	Arch)
-		sudo -u user yaourt -S --noconfirm transmission-remote-gui-gtk2
-		pacman --noconfirm -S transmission-cli
+		yaourt -S --noconfirm transmission-remote-gui-gtk2
+		sudo pacman --noconfirm -S transmission-cli
 		;;
 
 	Debian)
-		apt-get -y install transmission-remote-gtk
-		apt-get -y install transmission-daemon
+		sudo apt-get -y install transmission-remote-gtk
+		sudo apt-get -y install transmission-daemon
 		;;
 
 	Fedora)
-		dnf -y install transmission-remote-gtk
-		dnf -y install transmission-daemon
+		sudo dnf -y install transmission-remote-gtk
+		sudo dnf -y install transmission-daemon
 		;;
 
 	Ubuntu)
-		apt-get -y install transmission-remote-gtk
-		apt-get -y install transmission-daemon
+		sudo apt-get -y install transmission-remote-gtk
+		sudo apt-get -y install transmission-daemon
 		;;
 esac
 
 #parsers for ansiweather
 case $os in
 	Arch)
-		pacman --noconfirm -S jq
-		pacman --noconfirm -S bc
+		sudo pacman --noconfirm -S jq
+		sudo pacman --noconfirm -S bc
 		;;
 
 	Debian)
-		apt-get -y install jq
-		apt-get -y install bc
+		sudo apt-get -y install jq
+		sudo apt-get -y install bc
 		;;
 
 	Fedora)
-		dnf -y install jq
-		dnf -y install bc
+		sudo dnf -y install jq
+		sudo dnf -y install bc
 		;;
 
 	Ubuntu)
-		apt-get -y install jq
-		apt-get -y install bc
+		sudo apt-get -y install jq
+		sudo apt-get -y install bc
 		;;
 esac
 
 #colorized output for many of things
 case $os in
 	Arch)
-		pacman --noconfirm grc
+		sudo pacman --noconfirm grc
 		;;
 
 	Debian)
-		apt-get -y install
+		sudo apt-get -y install grc
 		;;
 
 	Ubuntu)
-		apt-get -y install
+		sudo apt-get -y install grc
 		;;
 
 	Fedora)
-		cd /home/user/bin/
+		cd ~/bin/
 		git clone https://github.com/garabik/grc.git
 		cd grc
 		./install.sh

@@ -26,8 +26,10 @@
   :ensure t)
 (use-package elfeed-org
   :ensure t
-  :config (setq rmh-elfeed-org-files (list "~/Dropbox/Org/Util/Rss.org"))
+  :config (setq rmh-elfeed-org-files (list "~/Data/Share/Org/Util/Rss.org"))
   (elfeed-org))
+(use-package elfeed-web
+  :ensure t)
 (defun bjm/elfeed-save-db-and-bury ()
   "Wrapper to save the elfeed db to disk before burying buffer"
   (interactive)
@@ -54,3 +56,5 @@
   (print "Done"))
 (bjm/elfeed-updater)
 (run-with-timer 0 (* 10 60) 'bjm/elfeed-updater)
+(setq httpd-port 8090)
+(elfeed-web-start)

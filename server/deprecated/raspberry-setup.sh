@@ -1,9 +1,9 @@
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install pass
-sudo apt-get install yadm
-sudo apt-get install syncthing
-sudo apt-get install python3-pip
+sudo sudo apt-get update
+sudo sudo apt-get upgrade
+sudo sudo apt-get install pass
+sudo sudo apt-get install yadm
+sudo sudo apt-get install syncthing
+sudo sudo apt-get install python3-pip
 sudo loginctl enable-linger pi
 sudo systemctl enable syncthing@pi.service
 sudo systemctl start syncthing@pi.service
@@ -11,7 +11,7 @@ curl -sSL https://get.docker.com | sh
 sudo usermod -aG docker pi
 sudo systemctl enable docker.service
 sudo systemctl start docker.service
-sudo apt-get install docker-compose
+sudo sudo apt-get install docker-compose
 #rtorrent + rutorrent
 docker run -v /home/pi/.config/rtorrent:/config -v /home/pi/Data/Share/Downloads:/downloads -e PGID=1000 -e PUID=1000 --name rtorrent -e TZ=Europe/Kiev -p 8888:80 -p 5000:5000 -p 51413:51413 -p 6881:6881/udp -d --restart always lsioarmhf/rutorrent
 #organizr

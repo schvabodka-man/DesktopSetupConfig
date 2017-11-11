@@ -5,126 +5,134 @@ os=$(lsb_release -is)
 #gui apps
 case $os in
 	Arch)
-		pacman -S --noconfirm calibre
-		pacman -S --noconfirm emacs
-		pacman -S --noconfirm xfce4-terminal
-		pacman -S --noconfirm pidgin
-		pacman -S --noconfirm gimp
+		sudo pacman -S --noconfirm calibre
+		sudo pacman -S --noconfirm emacs
+		sudo pacman -S --noconfirm xfce4-terminal
+		sudo pacman -S --noconfirm pidgin
+		sudo pacman -S --noconfirm gimp
+		sudo pacman -S --noconfirm qutebrowser
+		sudo pacman -S --noconfirm uget
 		;;
 
 	Debian)
-		apt-get -y install calibre
-		apt-get -y install emacs
-		apt-get -y install xfce4-terminal
-		apt-get -y install pidgin
-		apt-get -y install gimp
+		sudo apt-get -y install calibre
+		sudo apt-get -y install emacs
+		sudo apt-get -y install xfce4-terminal
+		sudo apt-get -y install pidgin
+		sudo apt-get -y install uget
+		sudo apt-get -y install qutebrowser
+		sudo apt-get -y install gimp
 		;;
 
 	Fedora)
-		dnf -y install calibre
-		dnf -y install emacs
-		dnf -y install xfce4-terminal
-		dnf -y install pidgin
-		dnf -y install gimp
+		sudo dnf -y install calibre
+		sudo dnf -y install emacs
+		sudo dnf -y install xfce4-terminal
+		sudo dnf -y install pidgin
+		sudo dnf -y install uget
+		sudo dnf -y install gimp
+		sudo dnf -y install qutebrowser
 		;;
 
 	Ubuntu)
-		apt-get -y install calibre
-		apt-get -y install emacs
-		apt-get -y install xfce4-terminal
-		apt-get -y install pidgin
-		apt-get -y install gimp
+		sudo apt-get -y install calibre
+		sudo apt-get -y install emacs
+		sudo apt-get -y install xfce4-terminal
+		sudo apt-get -y install pidgin
+		sudo apt-get -y install uget
+		sudo apt-get -y install qutebrowser
+		sudo apt-get -y install gimp
 		;;
 esac
 case $os in
 	Fedora)
-		dnf -y install calibre purple-libsteam
-		dnf -y install calibre purple-telegram
-		dnf -y install calibre purple-discord
-		dnf -y install calibre purple-hangouts
-		dnf -y install calibre purple-facebook
-		dnf -y install calibre purple-skypeweb
+		sudo dnf -y install calibre purple-libsteam
+		sudo dnf -y install calibre purple-telegram
+		sudo dnf -y install calibre purple-discord
+		sudo dnf -y install calibre purple-hangouts
+		sudo dnf -y install calibre purple-facebook
+		sudo dnf -y install calibre purple-skypeweb
 		;;
 
 	Arch)
-		pacman -S --noconfirm purple-facebook
-		pacman -S --noconfirm purple-skypeweb
+		sudo pacman -S --noconfirm purple-facebook
+		sudo pacman -S --noconfirm purple-skypeweb
 		;;
 esac
 #for development
 case $os in
 	Arch)
-		pacman -S --noconfirm firefox
-		pacman -S --noconfirm chromium
+		sudo pacman -S --noconfirm firefox
+		sudo pacman -S --noconfirm chromium
 		;;
 
 	Debian)
-		apt-get -y install
-		apt-get -y install
+		sudo apt-get -y install
+		sudo apt-get -y install
 		;;
 
 	Fedora)
-		dnf -y install firefox
-		dnf -y install chromium
+		sudo dnf -y install firefox
+		sudo dnf -y install chromium
 		;;
 
 	Ubuntu)
-		apt-get -y install firefox
-		apt-get -y install chromium
+		sudo apt-get -y install firefox
+		sudo apt-get -y install chromium
 		;;
 esac
 case $os in
 	Debian)
-		apt-get -y install gitk
+		sudo apt-get -y install gitk
 		;;
 
 	Fedora)
-		dnf -y install
+		sudo dnf -y install
 		;;
 
 	Ubuntu)
-		apt-get -y install gitk
+		sudo apt-get -y install gitk
 		;;
 esac
 case $os in
 	Arch)
-		pacman -S --noconfirm libreoffice-fresh
-		pacman -S --noconfirm libreoffice-fresh-ru
+		sudo pacman -S --noconfirm libreoffice-fresh
+		sudo pacman -S --noconfirm libreoffice-fresh-ru
 		;;
 
 	Debian)
-		apt-get -y install libreoffice
-		apt-get -y install libreoffice-l10n-ru
-		apt-get -y install libreoffice-lightproof-ru-ru
+		sudo apt-get -y install libreoffice
+		sudo apt-get -y install libreoffice-l10n-ru
+		sudo apt-get -y install libreoffice-lightproof-ru-ru
 		;;
 
 	Fedora)
-		dnf -y install libreoffice
-		dnf -y install libreoffice-langpack-ru
+		sudo dnf -y install libreoffice
+		sudo dnf -y install libreoffice-langpack-ru
 		;;
 
 	Ubuntu)
-		apt-get -y install libreoffice
-		apt-get -y install libreoffice-l10n-ru
-		apt-get -y install libreoffice-lightproof-ru-ru
+		sudo apt-get -y install libreoffice
+		sudo apt-get -y install libreoffice-l10n-ru
+		sudo apt-get -y install libreoffice-lightproof-ru-ru
 		;;
 esac
 #wine with stuff
 case $os in
 	Arch)
-		pacman -S --noconfirm playonlinux
+		sudo pacman -S --noconfirm playonlinux
 		;;
 
 	Debian)
-		apt-get -y install playonlinux
+		sudo apt-get -y install playonlinux
 		;;
 
 	Fedora)
-		dnf -y install http://rpm.playonlinux.com/playonlinux-yum-4-1.noarch.rpm
-		dnf -y install playonlinux
+		sudo dnf -y install http://rpm.playonlinux.com/playonlinux-yum-4-1.noarch.rpm
+		sudo dnf -y install playonlinux
 		;;
 
 	Ubuntu)
-		apt-get -y install playonlinux
+		sudo apt-get -y install playonlinux
 		;;
 esac

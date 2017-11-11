@@ -3,25 +3,25 @@ os=$(lsb_release -is)
 
 case $os in
 	Arch)
-		pacman -Sy diffutils
-		pacman -Sy gettext
-		pacman -Sy yajl
-		pacman -Sy git
-		cd /home/user/bin/
+		sudo pacman --noconfirm -S diffutils
+		sudo pacman --noconfirm -S gettext
+		sudo pacman --noconfirm -S yajl
+		sudo pacman --noconfirm -S git
+		cd ~/bin/
 		git clone https://aur.archlinux.org/package-query.git
 		cd package-query/
-		pacman -Sy pkg-config --state present
-		pacman -Sy fakeroot --state present
-		sudo -u user makepkg -sci
-		cd /home/user/bin/
+		sudo pacman -S --noconfirm pkg-config
+		sudo pacman -S --noconfirm fakeroot
+		makepkg -sci
+		cd ~/bin/
 		git clone https://aur.archlinux.org/yaourt.git
 		cd yaourt
-		sudo -u user makepkg -sci
+		makepkg -sci
 		yaourt -Syu
 		;;
 
 	Fedora)
-		dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-		dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+		sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+		sudo dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 		;;
 esac

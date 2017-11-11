@@ -5,129 +5,133 @@ os=$(lsb_release -is)
 #for development
 case $os in
 	Arch)
-		pacman --noconfirm -S the_silver_searcher
-		pacman --noconfirm -S python2-pip
-		pacman --noconfirm -S python-pip
-		pacman --noconfirm -S ruby
-		pacman --noconfirm -S shellcheck
-		pacman --noconfirm -S jdk9-openjdk
-		pacman --noconfirm -S go
-		pacman --noconfirm -S perl
-		pacman --noconfirm -S texlive-most
-		pacman --noconfirm -S rust
-		pacman --noconfirm -S kotlin
-		sudo -u user yaourt -S --noconfirm brainfuck
-		pacman --noconfirm -S luarocks
-		pacman --noconfirm -S scala
-		pacman --noconfirm -S clojure
-		pacman --noconfirm -S groovy
-		pacman --noconfirm -S tidy
-		pacman --noconfirm -S maven
-		pacman --noconfirm -S gradle
-		pacman --noconfirm -S sbt
+		sudo pacman --noconfirm -S the_silver_searcher
+		sudo pacman --noconfirm -S python2-pip
+		sudo pacman --noconfirm -S python-pip
+		sudo pacman --noconfirm -S ruby
+		sudo pacman --noconfirm -S shellcheck
+		sudo pacman --noconfirm -S jdk9-openjdk
+		sudo pacman --noconfirm -S go
+		sudo pacman --noconfirm -S perl
+		sudo pacman --noconfirm -S texlive-most
+		sudo pacman --noconfirm -S rust
+		sudo pacman --noconfirm -S kotlin
+		yaourt -S --noconfirm brainfuck
+		sudo pacman --noconfirm -S luarocks
+		sudo pacman --noconfirm -S scala
+		sudo pacman --noconfirm -S clojure
+		sudo pacman --noconfirm -S groovy
+		sudo pacman --noconfirm -S tidy
+		sudo pacman --noconfirm -S maven
+		sudo pacman --noconfirm -S gradle
+		sudo pacman --noconfirm -S sbt
+		sudo pacman --noconfirm -S cabal-install
 		;;
 
 	Debian)
-		apt-get -y install python-pip
-		apt-get -y install python3-pip
-		apt-get -y install ruby-all-dev
-		apt-get -y install shellcheck
-		apt-get -y install openjdk-9-jdk
-		apt-get -y install golang
-		apt-get -y install perl
-		apt-get -y install texlive-full
-		apt-get -y install cargo
-		apt-get -y install software-properties-common
-		apt-get -y install g++
-		apt-get -y install hsbrainfuck
-		apt-get -y install luarocks
-		apt-get -y install scala
-		apt-get -y install clojure
-		apt-get -y install groovy
-		apt-get -y install tidy
-		apt-get -y install gradle
-		apt-get -y install maven
-		apt-get -y install sbt
+		sudo apt-get -y install python-pip
+		sudo apt-get -y install python3-pip
+		sudo apt-get -y install ruby-all-dev
+		sudo apt-get -y install shellcheck
+		sudo apt-get -y install openjdk-9-jdk
+		sudo apt-get -y install golang
+		sudo apt-get -y install perl
+		sudo apt-get -y install texlive-full
+		sudo apt-get -y install cargo
+		sudo apt-get -y install software-properties-common
+		sudo apt-get -y install g++
+		sudo apt-get -y install hsbrainfuck
+		sudo apt-get -y install luarocks
+		sudo apt-get -y install scala
+		sudo apt-get -y install clojure
+		sudo apt-get -y install groovy
+		sudo apt-get -y install tidy
+		sudo apt-get -y install gradle
+		sudo apt-get -y install maven
+		sudo apt-get -y install sbt
+		sudo apt-get -y install cabal-install
 		;;
 
 	Fedora)
-		dnf -y install python-pip
-		dnf -y install python3-pip
-		dnf -y install ruby-devel
-		dnf -y install ShellCheck
-		dnf -y install java-1.8.0-openjdk-devel-debug
-		dnf -y install golang
-		dnf -y install cpan
-		dnf -y install texlive-scheme-full
-		dnf -y install cargo
-		dnf -y install gcc-c++
-		dnf -y install brainfuck
-		dnf -y install texlive-collection-langcyrillic
-		dnf -y install luarocks
-		dnf -y install scala
-		dnf -y install clojure
-		dnf -y install groovy
-		dnf -y install tidy
-		dnf -y install maven
-		dnf -y install gradle
-		dnf -y install sbt
+		sudo dnf -y install python-pip
+		sudo dnf -y install python3-pip
+		sudo dnf -y install ruby-devel
+		sudo dnf -y install ShellCheck
+		sudo dnf -y install java-1.8.0-openjdk-devel-debug
+		sudo dnf -y install golang
+		sudo dnf -y install cpan
+		sudo dnf -y install texlive-scheme-full
+		sudo dnf -y install cargo
+		sudo dnf -y install gcc-c++
+		sudo dnf -y install brainfuck
+		sudo dnf -y install texlive-collection-langcyrillic
+		sudo dnf -y install luarocks
+		sudo dnf -y install scala
+		sudo dnf -y install clojure
+		sudo dnf -y install groovy
+		sudo dnf -y install tidy
+		sudo dnf -y install maven
+		sudo dnf -y install gradle
+		sudo dnf -y install sbt
+		sudo dnf -y install cab
 		;;
 
 	Ubuntu)
-		apt-get -y install python-pip
-		apt-get -y install python3-pip
-		apt-get -y install ruby-all-dev
-		apt-get -y install shellcheck
-		apt-get -y install openjdk-9-jdk
-		apt-get -y install golang
-		apt-get -y install perl
-		apt-get -y install texlive-full
-		apt-get -y install cargo
-		apt-get -y install software-properties-common
-		apt-get -y install g++
-		apt-get -y install hsbrainfuck
-		apt-get -y install luarocks
-		apt-get -y install scala
-		apt-get -y install clojure
-		apt-get -y install groovy
-		apt-get -y install tidy
-		apt-get -y install gradle
-		apt-get -y install maven
-		apt-get -y install sbt
+		sudo apt-get -y install python-pip
+		sudo apt-get -y install python3-pip
+		sudo apt-get -y install ruby-all-dev
+		sudo apt-get -y install shellcheck
+		sudo apt-get -y install openjdk-9-jdk
+		sudo apt-get -y install golang
+		sudo apt-get -y install perl
+		sudo apt-get -y install texlive-full
+		sudo apt-get -y install cargo
+		sudo apt-get -y install software-properties-common
+		sudo apt-get -y install g++
+		sudo apt-get -y install hsbrainfuck
+		sudo apt-get -y install luarocks
+		sudo apt-get -y install scala
+		sudo apt-get -y install clojure
+		sudo apt-get -y install groovy
+		sudo apt-get -y install tidy
+		sudo apt-get -y install gradle
+		sudo apt-get -y install maven
+		sudo apt-get -y install sbt
+		sudo apt-get -y install cabal-install
 		;;
 esac
 
 case $os in
 	Arch)
-		pacman --noconfirm -S groovy-docs
+		sudo pacman --noconfirm -S groovy-docs
 		;;
 
 	Fedora)
-		dnf -y install groovy-groovysh
-		dnf -y install groovy-groovydoc
-		dnf -y install groovy-console
-		dnf -y install groovy-servlet
-		dnf -y install groovy-docgenerator
+		sudo dnf -y install groovy-groovysh
+		sudo dnf -y install groovy-groovydoc
+		sudo dnf -y install groovy-console
+		sudo dnf -y install groovy-servlet
+		sudo dnf -y install groovy-docgenerator
 		;;
 esac
 #nodejs in deb based is very funny to install properly
 case $os in
 	Arch)
-		pacman --noconfirm -S npm
+		sudo pacman --noconfirm -S npm
 		;;
 
 	Debian)
 		curl -sL https://deb.nodesource.com/setup_8.x | bash -
-		apt-get -y install nodejs
+		sudo apt-get -y install nodejs
 		;;
 
 	Fedora)
-		dnf -y install npm
+		sudo dnf -y install npm
 		;;
 
 	Ubuntu)
 		curl -sL https://deb.nodesource.com/setup_8.x | bash -
-		apt-get -y install nodejs
+		sudo apt-get -y install nodejs
 		;;
 esac
 

@@ -9,11 +9,11 @@ os=$(lsb_release -is)
 #		;;
 # esac
 # __package flatpak --state present
-# sudo -u user flatpak remote-add --if-not-exists --no-gpg-verify flathub https://flathub.org/repo/flathub.flatpakrepo #i've run into gpg troubles with this repo
+# flatpak remote-add --if-not-exists --no-gpg-verify flathub https://flathub.org/repo/flathub.flatpakrepo #i've run into gpg troubles with this repo
 
-# sudo -u user flatpak install flathub com.valvesoftware.Steam
-# sudo -u user flatpak install flathub com.skype.Client
+# flatpak install flathub com.valvesoftware.Steam
+# flatpak install flathub com.skype.Client
 
 #emulators in flatpaks
-# sudo -u user flatpak install flathub org.ppsspp.PPSSPP
-# sudo -u user flatpak install flathub org.libretro.RetroArch
+# flatpak install flathub org.ppsspp.PPSSPP
+# flatpak install flathub org.libretro.RetroArch

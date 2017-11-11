@@ -4,26 +4,24 @@ os=$(lsb_release -is)
 
 case $os in
 	Arch)
-		pacman -Syu
+		sudo pacman -Syu
 		;;
 
 	Debian)
-		apt-get -y update
-		apt-get -y upgrade
+		sudo apt-get -y update
+		sudo apt-get -y upgrade
 		;;
 
 	Ubuntu)
-		apt-get -y update
-		apt-get -y upgrade
+		sudo apt-get -y update
+		sudo apt-get -y upgrade
 		;;
 esac
 
-useradd -d /home/user -m user
-
-mkdir /home/user/Go
-mkdir /home/user/Go/bin
-mkdir /home/user/bin/
-mkdir /home/user/Maildir
-mkdir /home/user/Maildir/Gmail/
-mkdir /home/user/.emacs.d/
-touch /home/user/.emacs.d/w3m-session
+mkdir ~/Go
+mkdir ~/Go/bin
+mkdir ~/bin/
+mkdir ~/Maildir
+mkdir ~/Maildir/Gmail/
+mkdir ~/.emacs.d/
+touch ~/.emacs.d/w3m-session
