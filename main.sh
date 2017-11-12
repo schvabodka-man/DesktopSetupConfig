@@ -18,12 +18,12 @@ sh $folder/third-party-cli.sh
 sh $folder/fonts.sh
 
 sh $folder/fish-shell.sh
-sh $folder/vivaldi.sh
+# sh $folder/vivaldi.sh
 sh $folder/micro-editor.sh
 sh $folder/browser-native-client.sh
 sh $folder/ide.sh
 
-sh $folder/flatpaks.sh
+# sh $folder/flatpaks.sh
 
 sh $folder/docker-setup.sh
 

@@ -76,4 +76,4 @@ cd aria2rpc
 chmod +x aria2rpc
 
 #time tracker
-sudo cabal install arbtt
+# sudo cabal install arbtt

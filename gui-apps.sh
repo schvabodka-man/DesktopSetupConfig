@@ -8,6 +8,7 @@ case $os in
 		sudo pacman -S --noconfirm calibre
 		sudo pacman -S --noconfirm emacs
 		sudo pacman -S --noconfirm xfce4-terminal
+		sudo pacman -S --noconfirm xfce4-screenshooter
 		sudo pacman -S --noconfirm pidgin
 		sudo pacman -S --noconfirm gimp
 		sudo pacman -S --noconfirm qutebrowser
@@ -18,6 +19,7 @@ case $os in
 		sudo apt-get -y install calibre
 		sudo apt-get -y install emacs
 		sudo apt-get -y install xfce4-terminal
+		sudo apt-get -y install xfce4-screenshooter
 		sudo apt-get -y install pidgin
 		sudo apt-get -y install uget
 		sudo apt-get -y install qutebrowser
@@ -28,6 +30,7 @@ case $os in
 		sudo dnf -y install calibre
 		sudo dnf -y install emacs
 		sudo dnf -y install xfce4-terminal
+		sudo dnf -y install xfce4-screenshooter
 		sudo dnf -y install pidgin
 		sudo dnf -y install uget
 		sudo dnf -y install gimp
@@ -38,6 +41,7 @@ case $os in
 		sudo apt-get -y install calibre
 		sudo apt-get -y install emacs
 		sudo apt-get -y install xfce4-terminal
+		sudo apt-get -y install xfce4-screenshooter
 		sudo apt-get -y install pidgin
 		sudo apt-get -y install uget
 		sudo apt-get -y install qutebrowser

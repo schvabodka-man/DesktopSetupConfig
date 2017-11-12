@@ -9,11 +9,13 @@ case $os in
 
 	Debian)
 		sudo apt-get -y update
+		sudo apt-get -y install apt-utils
 		sudo apt-get -y upgrade
 		;;
 
 	Ubuntu)
 		sudo apt-get -y update
+		sudo apt-get -y install apt-utils
 		sudo apt-get -y upgrade
 		;;
 esac

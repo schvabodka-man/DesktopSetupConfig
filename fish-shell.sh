@@ -1,6 +1,7 @@
 #!/bin/sh
 
 os=$(lsb_release -is)
+user=$(whoami)
 
 case $os in
 	Arch)
@@ -20,7 +21,7 @@ case $os in
 		;;
 esac
 
-chsh -s /usr/bin/fish user
+chsh -s /usr/bin/fish $user
 chsh -s /usr/bin/fish root
 curl -L http://get.oh-my.fish | fish
 omf install bobthefish

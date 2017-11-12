@@ -83,6 +83,7 @@ case $os in
 		sudo pacman --noconfirm -S mediainfo
 		sudo pacman --noconfirm -S tmux
 		sudo pacman --noconfirm -S offlineimap
+		sudo pacman --noconfirm -S ffmpeg
 		sudo pacman --noconfirm -S w3m
 		;;
 
@@ -109,6 +110,7 @@ case $os in
 		sudo apt-get -y install youtube-dl
 		sudo apt-get -y install scrot
 		sudo apt-get -y install mpv
+		sudo apt-get -y install ffmpeg
 		sudo apt-get -y install dzen2
 		sudo apt-get -y install aria2
 		sudo apt-get -y install i3lock
@@ -148,6 +150,7 @@ case $os in
 		sudo dnf -y install mediainfo
 		sudo dnf -y install tmux
 		sudo dnf -y install offlineimap
+		sudo dnf -y install ffmpeg
 		sudo dnf -y install w3m
 		sudo dnf -y install w3m-img
 		;;
@@ -159,6 +162,7 @@ case $os in
 		sudo apt-get -y install mercurial
 		sudo apt-get -y install fossil
 		sudo apt-get -y install feh
+		sudo apt-get -y install ffmpeg
 		sudo apt-get -y install shntool
 		sudo apt-get -y install cuetools
 		sudo apt-get -y install curl
