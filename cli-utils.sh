@@ -241,27 +241,27 @@ case $os in
 		;;
 esac
 
-case $os in
-	Arch)
-		yaourt -S --noconfirm transmission-remote-gui-gtk2
-		sudo pacman --noconfirm -S transmission-cli
-		;;
+# case $os in
+#	Arch)
+#		yaourt -S --noconfirm transmission-remote-gui-gtk2
+#		sudo pacman --noconfirm -S transmission-cli
+#		;;
 
-	Debian)
-		sudo apt-get -y install transmission-remote-gtk
-		sudo apt-get -y install transmission-daemon
-		;;
+#	Debian)
+#		sudo apt-get -y install transmission-remote-gtk
+#		sudo apt-get -y install transmission-daemon
+#		;;
 
-	Fedora)
-		sudo dnf -y install transmission-remote-gtk
-		sudo dnf -y install transmission-daemon
-		;;
+#	Fedora)
+#		sudo dnf -y install transmission-remote-gtk
+#		sudo dnf -y install transmission-daemon
+#		;;
 
-	Ubuntu)
-		sudo apt-get -y install transmission-remote-gtk
-		sudo apt-get -y install transmission-daemon
-		;;
-esac
+#	Ubuntu)
+#		sudo apt-get -y install transmission-remote-gtk
+#		sudo apt-get -y install transmission-daemon
+#		;;
+# esac
 
 #parsers for ansiweather
 case $os in

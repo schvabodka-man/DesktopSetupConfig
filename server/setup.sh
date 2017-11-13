@@ -5,7 +5,7 @@ sudo sudo apt-get -y upgrade
 sudo sudo apt-get -y install emacs
 sudo sudo apt-get -y install calibre
 sudo sudo apt-get -y install aria2
-sudo sudo apt-get -y install transmission-daemon
+# sudo sudo apt-get -y install transmission-daemon
 sudo sudo apt-get -y install syncthing
 sudo sudo apt-get -y install cron
 
@@ -15,6 +15,7 @@ mkdir ~/.config/aria2/
 cp ./aria.conf ~/.config/aria2/
 cp ./running.sh ~/
 
+# should replace this -i
 sudo sed 's/#\?\(PermitRootLogin\s*\).*$/\1 no/' /etc/ssh/sshd_config > sshd.txt
 sudo mv -f sshd.txt /etc/ssh/sshd_config
 sudo sed 's/#\?\(X11Forwarding\s*\).*$/\1 no/' /etc/ssh/sshd_config > sshd.txt
@@ -38,6 +39,6 @@ currentusername=$(whoami)
 curl -sSL https://get.docker.com | sh
 
 sudo usermod -aG docker $currentusername
-sudo sudo apt-get -y install docker-compose
+sudo apt-get -y install docker-compose
 
-sudo sudo apt-get -y install network-manager
+sudo apt-get -y install network-manager
