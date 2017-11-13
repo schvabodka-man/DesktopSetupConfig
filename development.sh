@@ -25,6 +25,10 @@ case $os in
 		sudo pacman --noconfirm -S maven
 		sudo pacman --noconfirm -S gradle
 		sudo pacman --noconfirm -S sbt
+		sudo pacman --noconfirm -S sbcl
+		sudo pacman --noconfirm -S clisp
+		sudo pacman --noconfirm -S cmucl
+		sudo pacman --noconfirm -S ecl
 		sudo pacman --noconfirm -S cabal-install
 		;;
 
@@ -49,6 +53,11 @@ case $os in
 		sudo apt-get -y install gradle
 		sudo apt-get -y install maven
 		sudo apt-get -y install sbt
+		sudo apt-get -y install sbcl
+		sudo apt-get -y install clisp
+		sudo apt-get -y install cmucl
+		sudo apt-get -y install ecl
+		sudo apt-get -y install cl-quicklisp
 		sudo apt-get -y install cabal-install
 		;;
 
@@ -74,6 +83,10 @@ case $os in
 		sudo dnf -y install gradle
 		sudo dnf -y install sbt
 		sudo dnf -y install cab
+		sudo dnf -y install sbcl
+		sudo dnf -y install clisp
+		sudo dnf -y install cmucl
+		sudo dnf -y install ecl
 		;;
 
 	Ubuntu)
@@ -98,6 +111,11 @@ case $os in
 		sudo apt-get -y install maven
 		sudo apt-get -y install sbt
 		sudo apt-get -y install cabal-install
+		sudo apt-get -y install sbcl
+		sudo apt-get -y install clisp
+		sudo apt-get -y install cmucl
+		sudo apt-get -y install ecl
+		sudo apt-get -y install cl-quicklisp
 		;;
 esac
 
