@@ -40,12 +40,12 @@ rm sshd.txt
 
 currentusername=$(whoami)
 
-cd /opt/
-sudo mkdir gitea
+mkdir ~/bin
+cd ~/bin/
+mkdir gitea
 cd gitea
-sudo wget -O gitea https://dl.gitea.io/gitea/1.2.3/gitea-1.2.3-linux-arm-7
+wget -O gitea https://dl.gitea.io/gitea/1.2.3/gitea-1.2.3-linux-arm-7
 chmod +x gitea
-sudo chmod +x gitea #in case
 
 sudo apt-get -y install docker.io
 sudo usermod -aG docker $currentusername
