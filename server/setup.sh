@@ -11,9 +11,9 @@ sudo apt-get -y install cron
 sudo apt-get -y install network-manager
 sudo apt-get -y install cron-apt
 
-mkdir ~/.emacs.d.news/
+mkdir ~/.emacs.d/
 mkdir ~/Data/
-cp init.el ~/.emacs.d.news/
+cp init.el ~/.emacs.d/
 mkdir ~/.config/aria2/
 cp aria.conf ~/.config/aria2/
 sudo cp running.sh /bin/server-services-startup
@@ -44,11 +44,11 @@ sudo usermod -aG docker $currentusername
 
 sudo sh -c 'echo "MAILON=\"always\"" >> /etc/cron-apt/config'
 sudo sh -c 'echo "MAILTO=\"scvhapps@gmail.com\"" >> /etc/cron-apt/config'
+sudo sh -c "echo \"@reboot $currentusername server-services-startup\" >> /etc/crontab"
 
 sudo systemctl enable cron
 sudo systemctl enable docker
 
-sudo systemctl enable syncthing
 systemctl --user enable syncthing.service
 systemctl --user start syncthing.service
 

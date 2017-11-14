@@ -6,8 +6,6 @@
 
 ;;; Commentary:
 ;;; Code:
-(setq user-init-file "~/.emacs.d.news/init.el")
-(setq user-emacs-directory "~/.emacs.d.news")
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 						 ("melpa-stable" . "https://stable.melpa.org/packages/")
@@ -56,6 +54,6 @@
   (elfeed-update)
   (print "Done"))
 (bjm/elfeed-updater)
-(run-with-timer 0 (* 10 60) 'bjm/elfeed-updater)
 (setq httpd-port 8090)
 (elfeed-web-start)
+(run-with-timer 0 (* 10 60) 'bjm/elfeed-updater)
