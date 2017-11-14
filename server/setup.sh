@@ -8,13 +8,15 @@ sudo apt-get -y install aria2
 #sudo apt-get -y install transmission-daemon
 sudo apt-get -y install syncthing
 sudo apt-get -y install cron
+sudo apt-get -y install network-manager
+sudo apt-get -y install cron-apt
 
 mkdir ~/.emacs.d.news/
 mkdir ~/Data/
 cp ./init.el ~/.emacs.d.news/
 mkdir ~/.config/aria2/
 cp ./aria.conf ~/.config/aria2/
-cp ./running.sh ~/
+sudo cp ./running.sh /bin/server-services-startup
 
 # should replace this -i
 sudo sed 's/#\?\(PermitRootLogin\s*\).*$/\1 no/' /etc/ssh/sshd_config > sshd.txt
@@ -37,9 +39,13 @@ rm sshd.txt
 
 currentusername=$(whoami)
 
-curl -sSL https://get.docker.com | sh
-
+sudo apt-get -y install docker.io
 sudo usermod -aG docker $currentusername
-sudo apt-get -y install docker-compose
 
-sudo apt-get -y install network-manager
+sudo sh -c 'echo "MAILON=\"always\"" >> /etc/cron-apt/config'
+sudo sh -c 'echo "MAILTO=\"scvhapps@gmail.com\"" >> /etc/cron-apt/config'
+
+sudo systemctl enable cron
+sudo systemctl enable docker
+
+sudo reboot

@@ -23,7 +23,8 @@
   :ensure t
   :pin melpa-stable)
 (use-package elfeed
-  :ensure t)
+  :ensure t
+  :config (setq elfeed-db-directory "~/Data/elfeed"))
 (use-package elfeed-org
   :ensure t
   :config (setq rmh-elfeed-org-files (list "~/Data/Share/Org/Util/Rss.org"))
