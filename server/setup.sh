@@ -13,10 +13,10 @@ sudo apt-get -y install cron-apt
 
 mkdir ~/.emacs.d.news/
 mkdir ~/Data/
-cp ./init.el ~/.emacs.d.news/
+cp init.el ~/.emacs.d.news/
 mkdir ~/.config/aria2/
-cp ./aria.conf ~/.config/aria2/
-sudo cp ./running.sh /bin/server-services-startup
+cp aria.conf ~/.config/aria2/
+sudo cp running.sh /bin/server-services-startup
 
 # should replace this -i
 sudo sed 's/#\?\(PermitRootLogin\s*\).*$/\1 no/' /etc/ssh/sshd_config > sshd.txt
@@ -47,5 +47,12 @@ sudo sh -c 'echo "MAILTO=\"scvhapps@gmail.com\"" >> /etc/cron-apt/config'
 
 sudo systemctl enable cron
 sudo systemctl enable docker
+
+sudo systemctl enable syncthing
+systemctl --user enable syncthing.service
+systemctl --user start syncthing.service
+
+sudo sh -c 'echo "/dev/sda1        /home/pi/Data       vfat    uid=1000,gid=1000,umask=0022,sync,auto,nosuid,rw,nouser 0   0" >> /etc/fstab'
+sudo mount -a
 
 sudo reboot
