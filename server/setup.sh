@@ -42,6 +42,8 @@ currentusername=$(whoami)
 
 mkdir ~/bin/
 cd ~/bin/
+mkdir gitea
+cd gitea
 wget -O gitea https://dl.gitea.io/gitea/1.2.3/gitea-1.2.3-linux-arm-7
 chmod +x gitea
 
