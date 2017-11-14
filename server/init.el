@@ -54,6 +54,6 @@
   (elfeed-update)
   (print "Done"))
 (bjm/elfeed-updater)
+(run-with-timer 0 (* 20 60) 'bjm/elfeed-updater)
 (setq httpd-port 8090)
 (elfeed-web-start)
-(run-with-timer 0 (* 20 60) 'bjm/elfeed-updater)
