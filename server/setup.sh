@@ -15,7 +15,7 @@ mkdir ~/.emacs.d/
 mkdir ~/Data/
 cp init.el ~/.emacs.d/
 mkdir ~/.config/aria2/
-cp aria.conf ~/.config/aria2/
+cp aria2.conf ~/.config/aria2/
 sudo cp running.sh /bin/server-services-startup
 
 # should replace this -i
