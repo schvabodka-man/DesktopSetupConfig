@@ -7,6 +7,7 @@ sudo apt-get -y install calibre
 sudo apt-get -y install aria2
 #sudo apt-get -y install transmission-daemon
 sudo apt-get -y install syncthing
+sudo apt-get -y install neofetch
 sudo apt-get -y install cron
 sudo apt-get -y install network-manager
 sudo apt-get -y install cron-apt
@@ -38,6 +39,11 @@ sudo mv -f sshd.txt /etc/ssh/sshd_config
 rm sshd.txt
 
 currentusername=$(whoami)
+
+mkdir ~/bin/
+cd ~/bin/
+wget -O gitea https://dl.gitea.io/gitea/1.2.3/gitea-1.2.3-linux-arm-7
+chmod +x gitea
 
 sudo apt-get -y install docker.io
 sudo usermod -aG docker $currentusername
