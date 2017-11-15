@@ -27,10 +27,6 @@ sudo sed 's/#\?\(PermitRootLogin\s*\).*$/\1 no/' /etc/ssh/sshd_config > sshd.txt
 sudo mv -f sshd.txt /etc/ssh/sshd_config
 sudo sed 's/#\?\(X11Forwarding\s*\).*$/\1 no/' /etc/ssh/sshd_config > sshd.txt
 sudo mv -f sshd.txt /etc/ssh/sshd_config
-# sudo sed 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config > sshd.txt
-# sudo mv -f sshd.txt /etc/ssh/sshd_config
-# sudo sed 's/#\?\(PubkeyAuthentication\s*\).*$/\1 yes/' /etc/ssh/sshd_config > sshd.txt
-# sudo mv -f sshd.txt /etc/ssh/sshd_config
 sudo sed 's/#\?\(PermitEmptyPasswords \s*\).*$/\1 no/' /etc/ssh/sshd_config > sshd.txt
 sudo mv -f sshd.txt /etc/ssh/sshd_config
 sudo sed 's/#\?\(MaxAuthTries \s*\).*$/\1 3/' /etc/ssh/sshd_config > sshd.txt
@@ -39,14 +35,15 @@ sudo sed 's/#\?\(IgnoreRhosts \s*\).*$/\1 yes/' /etc/ssh/sshd_config > sshd.txt
 sudo mv -f sshd.txt /etc/ssh/sshd_config
 sudo sed '$ a Protocol 2' /etc/ssh/sshd_config > sshd.txt
 sudo mv -f sshd.txt /etc/ssh/sshd_config
-rm sshd.txt
+sudo sed 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config > sshd.txt
+sudo mv -f sshd.txt /etc/ssh/sshd_config
+sudo sed 's/#\?\(PubkeyAuthentication\s*\).*$/\1 yes/' /etc/ssh/sshd_config > sshd.txt
+sudo mv -f sshd.txt /etc/ssh/sshd_config
 
 currentusername=$(whoami)
 
 mkdir ~/bin
 cd ~/bin/
-mkdir gitea
-cd gitea
 wget -O gitea https://dl.gitea.io/gitea/1.2.3/gitea-1.2.3-linux-arm-7
 chmod +x gitea
 
@@ -61,7 +58,11 @@ sudo systemctl enable cron
 sudo systemctl enable docker
 
 systemctl --user enable syncthing.service
-systemctl --user start syncthing.service
+
+sudo apt-get install fail2ban
+sudo apt-get install iptables
+sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+sudo systemctl enable fail2ban
 
 sudo sh -c 'echo "/dev/sda1        /home/pi/Data       vfat    uid=1000,gid=1000,umask=0022,sync,auto,nosuid,rw,nouser 0   0" >> /etc/fstab'
 sudo mount -a
@@ -88,5 +89,12 @@ sudo mount -a
 
 # sudo systemctl enable gitea
 # sudo systemctl start gitea
+
+#i should run this
+# cat ~/.ssh/id_rsa.pub | ssh <USERNAME>@<IP-ADDRESS> 'cat >> .ssh/authorized_keys'
+#on user machine
+# and then chmod 600 authorized_keys on server
+
+passwd
 
 sudo reboot
