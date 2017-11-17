@@ -21,8 +21,8 @@ case $os in
 		;;
 esac
 
-chsh -s /usr/bin/fish $user
-chsh -s /usr/bin/fish root
+sudo chsh -s /usr/bin/fish $user
+sudo chsh -s /usr/bin/fish root
 curl -L http://get.oh-my.fish | fish
 omf install bobthefish
 omf install sudope
