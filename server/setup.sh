@@ -5,6 +5,7 @@ sudo apt-get -y upgrade
 currentusername=$(whoami)
 
 sudo apt-get -y install pass
+sudo mount /dev/sda1 ~/Data
 
 mkdir ~/.emacs.d/
 mkdir ~/.ssh/
@@ -17,7 +18,6 @@ cp aria2.conf ~/.config/aria2/
 sudo cp running.sh /bin/server-services-startup
 sudo cp update-git-repos.fish /bin/git-update-personal-repos
 
-sudo mount /dev/sda1 ~/Data
 #keys and shit, stored on seperate flash drive that should be inserted on setup
 cp ~/Data/id_rsa.pub ~/.ssh/authorized_keys
 sudo chmod 600 ~/.ssh/authorized_keys
@@ -45,7 +45,7 @@ sudo apt-get -y install fish
 sudo apt-get -y install fail2ban
 sudo apt-get -y install iptables
 
-# should replace this -i
+# should replace this with -i
 sudo sed 's/#\?\(PermitRootLogin\s*\).*$/\1 no/' /etc/ssh/sshd_config > sshd.txt
 sudo mv -f sshd.txt /etc/ssh/sshd_config
 sudo sed 's/#\?\(X11Forwarding\s*\).*$/\1 no/' /etc/ssh/sshd_config > sshd.txt
@@ -75,9 +75,9 @@ sudo mv -f sshd.txt /etc/ssh/sshd_config
 sudo sh -c 'echo "MAILON=\"always\"" >> /etc/cron-apt/config'
 sudo sh -c 'echo "MAILTO=\"scvhapps@gmail.com\"" >> /etc/cron-apt/config'
 
-sudo sh -c "echo \"*/30 * * * * $currentusername git-update-personal-repos >/dev/null 2>&1\" >> /etc/crontab"
 sudo sh -c "echo \"@reboot $currentusername server-services-startup\" >> /etc/crontab"
 sudo sh -c "echo \"@reboot root mount /dev/sda1 /home/$currentusername/Data\" >> /etc/crontab"
+sudo sh -c "echo \"*/30 * * * * $currentusername git-update-personal-repos >/dev/null 2>&1\" >> /etc/crontab"
 
 sudo systemctl enable cron
 
@@ -85,9 +85,6 @@ systemctl --user enable syncthing.service
 
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 sudo systemctl enable fail2ban
-
-# sudo sh -c 'echo "/dev/sda1        /home/pi/Data       vfat    uid=1000,gid=1000,umask=0022,sync,auto,nosuid,rw,nouser 0   0" >> /etc/fstab'
-# sudo mount -a
 
 sudo chsh -s /usr/bin/fish $currentusername
 sudo chsh -s /usr/bin/fish root
