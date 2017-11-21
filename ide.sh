@@ -32,6 +32,7 @@ case $os in
 		# sudo apt-get -y install eclipse
 		sudo apt-get -y install ubuntu-make
 		umake android
+		umake android android-studio
 		umake ide idea-ultimate
 		;;
 esac

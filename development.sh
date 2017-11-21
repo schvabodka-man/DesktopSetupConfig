@@ -141,6 +141,7 @@ case $os in
 	Debian)
 		curl -sL https://deb.nodesource.com/setup_8.x | bash -
 		sudo apt-get -y install nodejs
+		sudo apt-get -y install npm
 		;;
 
 	Fedora)
@@ -150,6 +151,7 @@ case $os in
 	Ubuntu)
 		curl -sL https://deb.nodesource.com/setup_8.x | bash -
 		sudo apt-get -y install nodejs
+		sudo apt-get -y install npm
 		;;
 esac
 

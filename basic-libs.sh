@@ -33,6 +33,7 @@ case $os in
 		sudo apt-get -y install sudo
 		sudo apt-get -y install gperf
 		sudo apt-get -y install bison
+		sudo apt-get -y install gstreamer1.0-plugins-{bad,base,good,ugly}
 		;;
 
 	Fedora)
@@ -64,6 +65,7 @@ case $os in
 		sudo apt-get -y install sudo
 		sudo apt-get -y install gperf
 		sudo apt-get -y install bison
+		sudo apt-get -y install gstreamer1.0-plugins-{bad,base,good,ugly}
 		;;
 esac
 #emacs pdf utils

@@ -85,6 +85,7 @@ case $os in
 		sudo pacman --noconfirm -S offlineimap
 		sudo pacman --noconfirm -S ffmpeg
 		sudo pacman --noconfirm -S w3m
+		sudo pacman --noconfirm -S xorg-xinit
 		;;
 
 	Debian)
@@ -119,6 +120,7 @@ case $os in
 		sudo apt-get -y install offlineimap
 		sudo apt-get -y install w3m
 		sudo apt-get -y install w3m-img
+		sudo apt-get -y install xinit
 		;;
 
 	Fedora)
@@ -187,6 +189,7 @@ case $os in
 		sudo apt-get -y install offlineimap
 		sudo apt-get -y install w3m
 		sudo apt-get -y install w3m-img
+		sudo apt-get -y install xinit
 		;;
 esac
 

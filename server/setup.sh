@@ -68,9 +68,10 @@ sudo mv -f sshd.txt /etc/ssh/sshd_config
 # wget -O gitea https://dl.gitea.io/gitea/1.2.3/gitea-1.2.3-linux-arm-7
 # chmod +x gitea
 
-# sudo apt-get -y install docker.io
-# sudo usermod -aG docker $currentusername
-# sudo systemctl enable docker
+sudo apt-get -y install docker.io
+sudo apt-get -y install docker-compose
+sudo usermod -aG docker $currentusername
+sudo systemctl enable docker
 
 sudo sh -c 'echo "MAILON=\"always\"" >> /etc/cron-apt/config'
 sudo sh -c 'echo "MAILTO=\"scvhapps@gmail.com\"" >> /etc/cron-apt/config'

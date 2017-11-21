@@ -27,5 +27,7 @@ mkdir ~/Maildir
 mkdir ~/Maildir/Gmail/
 mkdir ~/.emacs.d/
 touch ~/.emacs.d/w3m-session
+mkdir ~/.cargo/
+mkdir ~/.cargo/bin/
 echo "api_key: " >> ~/.meetup-clirc
 chmod 600 .meetup-clirc

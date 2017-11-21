@@ -22,7 +22,6 @@ case $os in
 		sudo apt-get -y install xfce4-screenshooter
 		sudo apt-get -y install pidgin
 		sudo apt-get -y install uget
-		sudo apt-get -y install qutebrowser
 		sudo apt-get -y install gimp
 		;;
 
@@ -44,7 +43,6 @@ case $os in
 		sudo apt-get -y install xfce4-screenshooter
 		sudo apt-get -y install pidgin
 		sudo apt-get -y install uget
-		sudo apt-get -y install qutebrowser
 		sudo apt-get -y install gimp
 		;;
 esac
@@ -63,6 +61,17 @@ case $os in
 		sudo pacman -S --noconfirm purple-skypeweb
 		;;
 esac
+case $os in
+	Debian|Ubuntu)
+		cd ~/bin
+		mkdir qutebrowser
+		cd qutebrowser
+		wget https://qutebrowser.org/python3-pypeg2_2.15.2-1_all.deb
+		wget https://github.com/qutebrowser/qutebrowser/releases/download/v1.0.3/qutebrowser_1.0.3-2_all.deb
+		sudo apt -y install ./python3-pypeg2_*_all.deb
+		sudo apt -y install ./qutebrowser_*_all.deb		
+	;;
+esac
 #for development
 case $os in
 	Arch)
@@ -71,8 +80,8 @@ case $os in
 		;;
 
 	Debian)
-		sudo apt-get -y install
-		sudo apt-get -y install
+		sudo apt-get -y install firefox
+		sudo apt-get -y install chromium-browser
 		;;
 
 	Fedora)
@@ -82,7 +91,7 @@ case $os in
 
 	Ubuntu)
 		sudo apt-get -y install firefox
-		sudo apt-get -y install chromium
+		sudo apt-get -y install chromium-browser
 		;;
 esac
 case $os in
@@ -91,7 +100,7 @@ case $os in
 		;;
 
 	Fedora)
-		sudo dnf -y install
+		sudo dnf -y install gitk
 		;;
 
 	Ubuntu)

@@ -1,19 +1,22 @@
 #!/bin/sh
+os=$(lsb_release -is)
+user=$(whoami)
+
 git clone https://github.com/fcambus/ansiweather.git ~/bin/ansiweather
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 #more utils from foreign repos
 #some nice utils for sql
-sudo pip install mycli
-sudo pip install pgcli
+sudo -H pip install mycli
+sudo -H pip install pgcli
 
 #better find command
 cargo install fd-find
 
 #safer rm
-sudo pip install trash-cli
+sudo -H pip install trash-cli
 #mv/cp with progress bar
-sudo pip install pycp
+sudo -H pip3 install pycp
 
 #asciinema
 sudo pip3 install asciinema
@@ -24,7 +27,7 @@ sudo npm install -g @aweary/alder
 #cli fuzzy finder
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/bin/fzf
 cd ~/bin/fzf
-./install
+fish -c "./install"
 
 #cat for images
 cd ~/bin/
@@ -40,7 +43,7 @@ cd ~/Go/bin/
 cd ~/bin/
 git clone https://github.com/sebastiencs/icons-in-terminal.git
 cd icons-in-terminal
-./install.sh
+fish -c "./install.sh"
 # Yes, it's fork of coreutils with diff done to ls.
 # And it's actually best solution for ls with icons out there.
 # Everything is compiled into one folder and that ls is alias in shell, no bullshit like messing system coreutils.
@@ -48,13 +51,15 @@ cd ~/bin/
 git clone https://github.com/sebastiencs/ls-icons.git
 cd ls-icons
 ./bootstrap
-export CC=clang CXX=clang++
+export CC=clang 
+export CXX=clang++
 mkdir binary
-./configure --prefix=~/bin/ls-icons/binary
+./configure --prefix=/home/$user/bin/ls-icons/binary
 make
 make install
+
 #alternative. slow
-sudo gem install colorls
+#sudo gem install colorls
 
 #need this for displaying layout in dzen2
 cd ~/bin/
@@ -76,4 +81,35 @@ cd aria2rpc
 chmod +x aria2rpc
 
 #time tracker
-# sudo cabal install arbtt
+case $os in
+	Debian)
+		sudo apt-get -y install arbtt
+		;;
+
+	Ubuntu)
+		sudo apt-get -y install arbtt
+		;;
+
+         *)
+	       sudo cabal install arbtt
+		;;
+esac
+
+#urlview for tmux
+case $os in
+	Arch)
+		yaourt -S --noconfirm urlview
+		;;
+
+	Fedora)
+		sudo dnf -y install urlview
+		;;
+
+	Debian)
+		sudo apt-get -y install urlview
+		;;
+
+	Ubuntu)
+		sudo apt-get -y install urlview
+		;;
+esac
