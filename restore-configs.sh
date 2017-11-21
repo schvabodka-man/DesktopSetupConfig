@@ -23,3 +23,4 @@ case $os in
 esac
 cd ~/
 yadm clone https://github.com/schvabodka-man/Dotfiles.git
+sudo cp .gitignore_global /etc/gitconfigs/.gitignore_global

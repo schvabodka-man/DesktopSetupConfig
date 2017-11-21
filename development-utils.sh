@@ -19,4 +19,4 @@ sudo cpan -fi IPC::Run3
 sudo cpan -fi Log::Log4perl
 sudo cpan -i CSS::Watcher
 #git-pass integration
-git clone https://github.com/languitar/pass-git-helper.git ~/bin/pass-git-helper/
+sudo git clone https://github.com/languitar/pass-git-helper.git /opt/pass-git-helper/
