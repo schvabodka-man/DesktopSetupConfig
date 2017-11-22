@@ -86,6 +86,9 @@ case $os in
 		sudo pacman --noconfirm -S ffmpeg
 		sudo pacman --noconfirm -S w3m
 		sudo pacman --noconfirm -S xorg-xinit
+		sudo pacman --noconfirm -S rofi
+		yaourt -S --noconfirm neofetch
+		yaourt -S --noconfirm stumpwm
 		;;
 
 	Debian)
@@ -101,6 +104,7 @@ case $os in
 		sudo apt-get -y install wget
 		sudo apt-get -y install htop
 		sudo apt-get -y install cloc
+		sudo apt-get -y install neofetch
 		sudo apt-get -y install pandoc
 		sudo apt-get -y install unrar
 		sudo apt-get -y install unzip
@@ -121,6 +125,8 @@ case $os in
 		sudo apt-get -y install w3m
 		sudo apt-get -y install w3m-img
 		sudo apt-get -y install xinit
+		sudo apt-get -y install stumpwm
+		sudo apt-get -y install rofi
 		;;
 
 	Fedora)
@@ -133,6 +139,7 @@ case $os in
 		sudo dnf -y install shntool
 		sudo dnf -y install cuetools
 		sudo dnf -y install curl
+		sudo dnf -y install neofetch
 		sudo dnf -y install wget
 		sudo dnf -y install htop
 		sudo dnf -y install cloc
@@ -182,6 +189,7 @@ case $os in
 		sudo apt-get -y install scrot
 		sudo apt-get -y install mpv
 		sudo apt-get -y install dzen2
+		sudo apt-get -y install neofetch
 		sudo apt-get -y install aria2
 		sudo apt-get -y install i3lock
 		sudo apt-get -y install mediainfo
@@ -190,6 +198,8 @@ case $os in
 		sudo apt-get -y install w3m
 		sudo apt-get -y install w3m-img
 		sudo apt-get -y install xinit
+		sudo apt-get -y install stumpwm
+		sudo apt-get -y install rofi
 		;;
 esac
 

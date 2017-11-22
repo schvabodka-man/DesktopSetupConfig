@@ -70,7 +70,7 @@ case $os in
 		wget https://github.com/qutebrowser/qutebrowser/releases/download/v1.0.3/qutebrowser_1.0.3-2_all.deb
 		sudo apt -y install ./python3-pypeg2_*_all.deb
 		sudo apt -y install ./qutebrowser_*_all.deb		
-	;;
+		;;
 esac
 #for development
 case $os in
@@ -149,3 +149,17 @@ case $os in
 		sudo apt-get -y install playonlinux
 		;;
 esac
+
+cd ~/bin/
+mkdir palemooninstaller
+cd palemooninstaller
+wget https://linux.palemoon.org/datastore/release/pminstaller-0.2.3.tar.bz2
+tar xjvf pminstaller-*
+./pminstaller.sh
+
+cd ~/bin/
+git clone git://git.suckless.org/st
+cd st
+rm config.h
+cp ~/.config/st/config.h ./
+make

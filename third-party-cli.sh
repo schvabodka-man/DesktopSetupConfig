@@ -90,8 +90,8 @@ case $os in
 		sudo apt-get -y install arbtt
 		;;
 
-         *)
-	       sudo cabal install arbtt
+    *)
+	    sudo cabal install arbtt
 		;;
 esac
 

@@ -1,6 +1,7 @@
 #!/bin/sh
 
 os=$(lsb_release -is)
+user=$(whoami)
 
 case $os in
 	Arch)
@@ -31,3 +32,5 @@ mkdir ~/.cargo/
 mkdir ~/.cargo/bin/
 echo "api_key: " >> ~/.meetup-clirc
 chmod 600 .meetup-clirc
+
+sudo usermod -aG tty $user

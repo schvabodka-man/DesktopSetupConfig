@@ -8,6 +8,7 @@ case $os in
 		sudo pacman --noconfirm -S poppler
 		sudo pacman --noconfirm -S poppler-glib
 		sudo pacman --noconfirm -S poppler-data
+		sudo pacman --noconfirm -S libxft
 		sudo pacman --noconfirm -S clang
 		sudo pacman --noconfirm -S gcc
 		sudo pacman --noconfirm -S cmake
@@ -24,6 +25,8 @@ case $os in
 		sudo apt-get -y install zlib1g-dev
 		sudo apt-get -y install libpoppler-glib-dev
 		sudo apt-get -y install libpoppler-private-dev
+		sudo apt-get -y install libxft-dev
+		sudo apt-get -y install libxft2-dbg
 		sudo apt-get -y install clang
 		sudo apt-get -y install gcc
 		sudo apt-get -y install cmake
@@ -40,6 +43,8 @@ case $os in
 		sudo dnf -y install zlib-devel
 		sudo dnf -y install poppler-glib-devel
 		sudo dnf -y install libpng-devel
+		sudo dnf -y install libxft
+		sudo dnf -y install libxft-devel
 		sudo dnf -y install clang
 		sudo dnf -y install gcc
 		sudo dnf -y install cmake
@@ -54,8 +59,11 @@ case $os in
 	Ubuntu)
 		sudo apt-get -y install libpng-dev
 		sudo apt-get -y install zlib1g-dev
+		sudo apt-get -y install libxft-dev
 		sudo apt-get -y install libpoppler-glib-dev
 		sudo apt-get -y install libpoppler-private-dev
+		sudo apt-get -y install libxft-dev
+		sudo apt-get -y install libxft2-dbg
 		sudo apt-get -y install clang
 		sudo apt-get -y install gcc
 		sudo apt-get -y install cmake
