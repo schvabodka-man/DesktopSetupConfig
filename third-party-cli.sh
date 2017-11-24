@@ -40,23 +40,20 @@ cd ~/Go/bin/
 ./gopm bin github.com/jingweno/ccat
 
 #ls with icons
-cd ~/bin/
-git clone https://github.com/sebastiencs/icons-in-terminal.git
-cd icons-in-terminal
-fish -c "./install.sh"
-# Yes, it's fork of coreutils with diff done to ls.
-# And it's actually best solution for ls with icons out there.
-# Everything is compiled into one folder and that ls is alias in shell, no bullshit like messing system coreutils.
-cd ~/bin/
-git clone https://github.com/sebastiencs/ls-icons.git
-cd ls-icons
-./bootstrap
-export CC=clang 
-export CXX=clang++
-mkdir binary
-./configure --prefix=/home/$user/bin/ls-icons/binary
-make
-make install
+# cd ~/bin/
+# git clone https://github.com/sebastiencs/icons-in-terminal.git
+# cd icons-in-terminal
+# fish -c "./install.sh"
+# cd ~/bin/
+# git clone https://github.com/sebastiencs/ls-icons.git
+# cd ls-icons
+# ./bootstrap
+# export CC=clang 
+# export CXX=clang++
+# mkdir binary
+# ./configure --prefix=/home/$user/bin/ls-icons/binary
+# make
+# make install
 
 #alternative. slow
 #sudo gem install colorls
@@ -95,21 +92,8 @@ case $os in
 		;;
 esac
 
-#urlview for tmux
-case $os in
-	Arch)
-		yaourt -S --noconfirm urlview
-		;;
+# cd ~/bin/
+# wget https://raw.githubusercontent.com/AnthonyDiGirolamo/els/master/els
+# chmod +x els
 
-	Fedora)
-		sudo dnf -y install urlview
-		;;
-
-	Debian)
-		sudo apt-get -y install urlview
-		;;
-
-	Ubuntu)
-		sudo apt-get -y install urlview
-		;;
-esac
+git clone https://github.com/stumpwm/stumpwm-contrib.git ~/stumpwm/contrib

@@ -1,0 +1,7 @@
+(load "/usr/share/cl-quicklisp/quicklisp.lisp")
+(quicklisp-quickstart:install)
+(ql:add-to-init-file)
+(ql:quickload :clx-truetype)
+(xft:cache-fonts)
+(clx-truetype:cache-fonts)
+(quit)

@@ -13,6 +13,8 @@ case $os in
 		sudo pacman -S --noconfirm gimp
 		sudo pacman -S --noconfirm qutebrowser
 		sudo pacman -S --noconfirm uget
+		sudo pacman -S --noconfirm thunar
+		sudo pacman -S --noconfirm zathura
 		;;
 
 	Debian)
@@ -23,6 +25,8 @@ case $os in
 		sudo apt-get -y install pidgin
 		sudo apt-get -y install uget
 		sudo apt-get -y install gimp
+		sudo apt-get -y install thunar
+		sudo apt-get -y install zathura
 		;;
 
 	Fedora)
@@ -34,6 +38,8 @@ case $os in
 		sudo dnf -y install uget
 		sudo dnf -y install gimp
 		sudo dnf -y install qutebrowser
+		sudo dnf -y install thunar
+		sudo dnf -y install zathura
 		;;
 
 	Ubuntu)
@@ -44,6 +50,8 @@ case $os in
 		sudo apt-get -y install pidgin
 		sudo apt-get -y install uget
 		sudo apt-get -y install gimp
+		sudo apt-get -y install thunar
+		sudo apt-get -y install zathura
 		;;
 esac
 case $os in

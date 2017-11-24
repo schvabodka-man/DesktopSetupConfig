@@ -30,6 +30,11 @@ mkdir ~/.emacs.d/
 touch ~/.emacs.d/w3m-session
 mkdir ~/.cargo/
 mkdir ~/.cargo/bin/
+mkdir ~/aria2
+touch ~/aria2/session
+
+mkdir ~/Music
+
 echo "api_key: " >> ~/.meetup-clirc
 chmod 600 .meetup-clirc
 

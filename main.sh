@@ -1,5 +1,7 @@
 #!/bin/sh
+
 folder=$PWD
+export folder
 
 sh $folder/fish-shell.sh
 

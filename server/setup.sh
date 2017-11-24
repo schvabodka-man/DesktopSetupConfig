@@ -35,7 +35,7 @@ sudo apt-get -y install apt-utils
 sudo apt-get -y install emacs
 sudo apt-get -y install calibre
 sudo apt-get -y install aria2
-#sudo apt-get -y install transmission-daemon
+sudo apt-get -y install transmission-daemon
 sudo apt-get -y install syncthing
 sudo apt-get -y install neofetch
 sudo apt-get -y install cron

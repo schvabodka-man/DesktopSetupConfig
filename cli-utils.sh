@@ -65,10 +65,13 @@ case $os in
 		sudo pacman --noconfirm -S cuetools
 		sudo pacman --noconfirm -S curl
 		sudo pacman --noconfirm -S wget
+		sudo pacman --noconfirm -S inotify-tools
 		sudo pacman --noconfirm -S htop
 		sudo pacman --noconfirm -S cloc
 		sudo pacman --noconfirm -S pandoc
 		sudo pacman --noconfirm -S unrar
+		sudo pacman --noconfirm -S compton
+		sudo pacman --noconfirm -S xdotool
 		sudo pacman --noconfirm -S unzip
 		sudo pacman --noconfirm -S p7zip
 		sudo pacman --noconfirm -S source-highlight
@@ -77,14 +80,18 @@ case $os in
 		sudo pacman --noconfirm -S youtube-dl
 		sudo pacman --noconfirm -S scrot
 		sudo pacman --noconfirm -S mpv
+		sudo pacman --noconfirm -S octave
 		sudo pacman --noconfirm -S dzen2
+		sudo pacman --noconfirm -S xorg-setxkbmap
 		sudo pacman --noconfirm -S aria2
 		sudo pacman --noconfirm -S i3lock
+		sudo pacman --noconfirm -S gawk mawk
 		sudo pacman --noconfirm -S mediainfo
 		sudo pacman --noconfirm -S tmux
 		sudo pacman --noconfirm -S offlineimap
 		sudo pacman --noconfirm -S ffmpeg
 		sudo pacman --noconfirm -S w3m
+		sudo pacman --noconfirm -S libnotify
 		sudo pacman --noconfirm -S xorg-xinit
 		sudo pacman --noconfirm -S rofi
 		yaourt -S --noconfirm neofetch
@@ -100,26 +107,34 @@ case $os in
 		sudo apt-get -y install feh
 		sudo apt-get -y install shntool
 		sudo apt-get -y install cuetools
+		sudo apt-get -y install octave
 		sudo apt-get -y install curl
 		sudo apt-get -y install wget
+		sudo apt-get -y install highlight highlight-common
 		sudo apt-get -y install htop
+		sudo apt-get -y install xdotool
 		sudo apt-get -y install cloc
 		sudo apt-get -y install neofetch
 		sudo apt-get -y install pandoc
 		sudo apt-get -y install unrar
 		sudo apt-get -y install unzip
+		sudo apt-get -y install compton
 		sudo apt-get -y install p7zip
+		sudo apt-get -y install inotify-tools
 		sudo apt-get -y install source-highlight
 		sudo apt-get -y install colordiff
 		sudo apt-get -y install xsel
 		sudo apt-get -y install youtube-dl
 		sudo apt-get -y install scrot
 		sudo apt-get -y install mpv
+		sudo apt-get -y install libnotify-bin
 		sudo apt-get -y install ffmpeg
 		sudo apt-get -y install dzen2
 		sudo apt-get -y install aria2
+		sudo apt-get -y install x11-xkb-utils
 		sudo apt-get -y install i3lock
 		sudo apt-get -y install mediainfo
+		sudo apt-get -y install gawk mawk
 		sudo apt-get -y install tmux
 		sudo apt-get -y install offlineimap
 		sudo apt-get -y install w3m
@@ -139,20 +154,25 @@ case $os in
 		sudo dnf -y install shntool
 		sudo dnf -y install cuetools
 		sudo dnf -y install curl
-		sudo dnf -y install neofetch
+		sudo dnf -y install screenfetch
 		sudo dnf -y install wget
+		sudo dnf -y install xdotool
 		sudo dnf -y install htop
 		sudo dnf -y install cloc
 		sudo dnf -y install pandoc
 		sudo dnf -y install unrar
+		sudo dnf -y install octave
 		sudo dnf -y install unzip
 		sudo dnf -y install p7zip
+		sudo dnf -y install inotify-tools
 		sudo dnf -y install source-highlight
 		sudo dnf -y install colordiff
 		sudo dnf -y install xsel
 		sudo dnf -y install youtube-dl
+		sudo dnf -y install libnotify
 		sudo dnf -y install scrot
 		sudo dnf -y install mpv
+		sudo dnf -y install gawk mawk
 		sudo dnf -y install dzen2
 		sudo dnf -y install aria2
 		sudo dnf -y install i3lock
@@ -170,17 +190,25 @@ case $os in
 		sudo apt-get -y install git
 		sudo apt-get -y install mercurial
 		sudo apt-get -y install fossil
+		sudo apt-get -y install gawk mawk
 		sudo apt-get -y install feh
 		sudo apt-get -y install ffmpeg
 		sudo apt-get -y install shntool
 		sudo apt-get -y install cuetools
+		sudo apt-get -y install compton
 		sudo apt-get -y install curl
 		sudo apt-get -y install wget
 		sudo apt-get -y install htop
+		sudo apt-get -y install highlight highlight-common
 		sudo apt-get -y install cloc
 		sudo apt-get -y install pandoc
+		sudo apt-get -y install xdotool
+		sudo apt-get -y install inotify-tools
+		sudo apt-get -y install libnotify-bin
 		sudo apt-get -y install unrar
+		sudo apt-get -y install octave
 		sudo apt-get -y install unzip
+		sudo apt-get -y install x11-xkb-utils
 		sudo apt-get -y install p7zip
 		sudo apt-get -y install source-highlight
 		sudo apt-get -y install colordiff
@@ -254,27 +282,28 @@ case $os in
 		;;
 esac
 
-# case $os in
-#	Arch)
-#		yaourt -S --noconfirm transmission-remote-gui-gtk2
-#		sudo pacman --noconfirm -S transmission-cli
-#		;;
+case $os in
+	Arch)
 
-#	Debian)
-#		sudo apt-get -y install transmission-remote-gtk
-#		sudo apt-get -y install transmission-daemon
-#		;;
+		yaourt -S --noconfirm transmission-remote-gui-gtk2
+		sudo pacman --noconfirm -S transmission-cli
+		;;
 
-#	Fedora)
-#		sudo dnf -y install transmission-remote-gtk
-#		sudo dnf -y install transmission-daemon
-#		;;
+	Debian)
+		sudo apt-get -y install transmission-remote-gtk
+		sudo apt-get -y install transmission-daemon
+		;;
 
-#	Ubuntu)
-#		sudo apt-get -y install transmission-remote-gtk
-#		sudo apt-get -y install transmission-daemon
-#		;;
-# esac
+	Fedora)
+		sudo dnf -y install transmission-remote-gtk
+		sudo dnf -y install transmission-daemon
+		;;
+
+	Ubuntu)
+		sudo apt-get -y install transmission-remote-gtk
+		sudo apt-get -y install transmission-daemon
+		;;
+esac
 
 #parsers for ansiweather
 case $os in
@@ -320,4 +349,22 @@ case $os in
 		./install.sh
 		;;
 
+esac
+
+case $os in
+	Arch)
+		yaourt -S --noconfirm urlview
+		;;
+
+	Fedora)
+		sudo dnf -y install urlview
+		;;
+
+	Debian)
+		sudo apt-get -y install urlview
+		;;
+
+	Ubuntu)
+		sudo apt-get -y install urlview
+		;;
 esac

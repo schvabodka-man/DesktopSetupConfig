@@ -24,3 +24,10 @@ esac
 cd ~/
 yadm clone https://github.com/schvabodka-man/Dotfiles.git
 sudo cp .gitignore_global /etc/gitconfigs/.gitignore_global
+
+mkdir ~/.config/mpd/playlists
+touch ~/.config/mpd/mpd.db
+touch ~/.config/mpd/mpd.log
+touch ~/.config/mpd/mpd.pid
+touch ~/.config/mpd/mpd.state
+touch ~/.config/mpd/sticker.sql

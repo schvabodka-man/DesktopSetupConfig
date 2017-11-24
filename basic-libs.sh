@@ -91,6 +91,8 @@ case $os in
 		sudo apt-get -y install zlib1g-dev
 		sudo apt-get -y install libpoppler-glib-dev
 		sudo apt-get -y install libpoppler-private-dev
+		sudo apt-get install clisp-module-clx cl clx-sbcl
+		sudo apt-get install libclxclient3 libclxclient-dev
 		;;
 
 	Fedora)
@@ -104,6 +106,8 @@ case $os in
 		sudo apt-get -y install zlib1g-dev
 		sudo apt-get -y install libpoppler-glib-dev
 		sudo apt-get -y install libpoppler-private-dev
+		sudo apt-get install clisp-module-clx cl clx-sbcl
+		sudo apt-get install libclxclient3 libclxclient-dev
 		;;
 esac
 #imlib for compiling icat
