@@ -24,9 +24,9 @@ sh $folder/fonts.sh
 sh $folder/micro-editor.sh
 sh $folder/ide.sh
 
-# sh $folder/flatpaks.sh
-
 sh $folder/docker-setup.sh
 
-sh $folder/dns-settings.sh
+# sh $folder/dns-settings.sh
 sh $folder/restore-configs.sh
+
+sbcl --load $folder/quicklispinit.lisp

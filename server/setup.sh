@@ -28,8 +28,10 @@ gpg2 --edit-key "vanya@server.com"
 #unix pass
 cp -r ~/Data/password-store-server .password-store/
 #user passwords
-echo "$currentusername:$(gpg2 -d ~/Data/upass.gpg)" | sudo chpasswd
-echo "root:$(gpg2 -d ~/Data/rpass.gpg)" | sudo chpasswd
+# echo "$currentusername:$(gpg2 -d ~/Data/upass.gpg)" | sudo chpasswd
+# echo "root:$(gpg2 -d ~/Data/rpass.gpg)" | sudo chpasswd
+sudo passwd root
+sudo passwd $currentusername
 
 sudo apt-get -y install apt-utils
 sudo apt-get -y install emacs

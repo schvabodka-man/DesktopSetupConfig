@@ -37,6 +37,8 @@ case $os in
 		sudo apt-get -y install gperf
 		sudo apt-get -y install bison
 		sudo apt-get -y install gstreamer1.0-plugins-{bad,base,good,ugly}
+		#stumpwm
+		sudo apt-get install libfixposix0 libfixposix-dev
 		;;
 
 	Fedora)
@@ -74,6 +76,8 @@ case $os in
 		sudo apt-get -y install gperf
 		sudo apt-get -y install bison
 		sudo apt-get -y install gstreamer1.0-plugins-{bad,base,good,ugly}
+		#for stumpwm notifications
+		sudo apt-get install libfixposix0 libfixposix-dev
 		;;
 esac
 #emacs pdf utils

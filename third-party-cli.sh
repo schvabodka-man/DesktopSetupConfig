@@ -2,13 +2,14 @@
 os=$(lsb_release -is)
 user=$(whoami)
 
-git clone https://github.com/fcambus/ansiweather.git ~/bin/ansiweather
+# git clone https://github.com/fcambus/ansiweather.git ~/bin/ansiweather
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 #more utils from foreign repos
 #some nice utils for sql
 sudo -H pip install mycli
 sudo -H pip install pgcli
+sudo -H pip install tldr
 
 #better find command
 cargo install fd-find
@@ -60,7 +61,9 @@ cd ~/Go/bin/
 
 #need this for displaying layout in dzen2
 cd ~/bin/
-git clone https://github.com/nonpop/xkblayout-state.git
+wget https://github.com/nonpop/xkblayout-state/archive/v1b.zip
+unzip xkblayout-state-1b.zip
+mv xkblayout-state-1b xkblayout-state
 cd xkblayout-state
 make
 
@@ -97,3 +100,6 @@ esac
 # chmod +x els
 
 git clone https://github.com/stumpwm/stumpwm-contrib.git ~/stumpwm/contrib
+
+cd ~/bin/
+git clone https://github.com/cdown/clipmenu.git

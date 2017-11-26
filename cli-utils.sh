@@ -4,22 +4,26 @@ os=$(lsb_release -is)
 
 case $os in
 	Arch)
-		sudo pacman --noconfirm -S gnupg --state present
+		sudo pacman --noconfirm -S gnupg
+		sudo pacman --noconfirm -S pwgen
 		;;
 
 	Debian)
 		sudo apt-get -y install gnupg2
 		sudo apt-get -y install gnupg
+		sudo apt-get -y install pwgen
 		;;
 
 	Fedora)
 		sudo dnf -y install gnupg2
 		sudo dnf -y install gnupg
+		sudo dnf -y install pwgen
 		;;
 
 	Ubuntu)
 		sudo apt-get -y install gnupg2
 		sudo apt-get -y install gnupg
+		sudo apt-get -y install pwgen
 		;;
 esac
 
@@ -62,6 +66,7 @@ case $os in
 		sudo pacman --noconfirm -S fossil
 		sudo pacman --noconfirm -S feh
 		sudo pacman --noconfirm -S shntool
+		sudo pacman --noconfirm -S dunst
 		sudo pacman --noconfirm -S cuetools
 		sudo pacman --noconfirm -S curl
 		sudo pacman --noconfirm -S wget
@@ -116,6 +121,7 @@ case $os in
 		sudo apt-get -y install cloc
 		sudo apt-get -y install neofetch
 		sudo apt-get -y install pandoc
+		sudo apt-get -y install dunst
 		sudo apt-get -y install unrar
 		sudo apt-get -y install unzip
 		sudo apt-get -y install compton
@@ -163,6 +169,7 @@ case $os in
 		sudo dnf -y install unrar
 		sudo dnf -y install octave
 		sudo dnf -y install unzip
+		sudo dnf -y install dunst
 		sudo dnf -y install p7zip
 		sudo dnf -y install inotify-tools
 		sudo dnf -y install source-highlight
@@ -203,6 +210,7 @@ case $os in
 		sudo apt-get -y install cloc
 		sudo apt-get -y install pandoc
 		sudo apt-get -y install xdotool
+		sudo apt-get -y install dunst
 		sudo apt-get -y install inotify-tools
 		sudo apt-get -y install libnotify-bin
 		sudo apt-get -y install unrar
