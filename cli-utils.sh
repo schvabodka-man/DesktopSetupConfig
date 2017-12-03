@@ -87,9 +87,12 @@ case $os in
 		sudo pacman --noconfirm -S mpv
 		sudo pacman --noconfirm -S octave
 		sudo pacman --noconfirm -S dzen2
+		sudo pacman --noconfirm -S cmus
+		sudo pacman --noconfirm -S mplayer
 		sudo pacman --noconfirm -S xorg-setxkbmap
 		sudo pacman --noconfirm -S aria2
 		sudo pacman --noconfirm -S i3lock
+		sudo pacman --noconfirm -S udisks2 udiskie
 		sudo pacman --noconfirm -S gawk mawk
 		sudo pacman --noconfirm -S mediainfo
 		sudo pacman --noconfirm -S tmux
@@ -101,6 +104,7 @@ case $os in
 		sudo pacman --noconfirm -S rofi
 		yaourt -S --noconfirm neofetch
 		yaourt -S --noconfirm stumpwm
+		yaourt -S --noconfirm gitflow-avh
 		;;
 
 	Debian)
@@ -119,11 +123,15 @@ case $os in
 		sudo apt-get -y install htop
 		sudo apt-get -y install xdotool
 		sudo apt-get -y install cloc
+		sudo apt-get -y install git-flow
 		sudo apt-get -y install neofetch
 		sudo apt-get -y install pandoc
 		sudo apt-get -y install dunst
 		sudo apt-get -y install unrar
 		sudo apt-get -y install unzip
+		sudo apt-get -y install mplayer
+		sudo apt-get -y install cmus
+		sudo apt-get -y install udisks2 udiskie
 		sudo apt-get -y install compton
 		sudo apt-get -y install p7zip
 		sudo apt-get -y install inotify-tools
@@ -166,8 +174,12 @@ case $os in
 		sudo dnf -y install htop
 		sudo dnf -y install cloc
 		sudo dnf -y install pandoc
+		sudo dnf -y install gitflow
+		sudo dnf -y install cmus
+		sudo dnf -y install mplayer
 		sudo dnf -y install unrar
 		sudo dnf -y install octave
+		sudo dnf -y install udisks2 udiskie
 		sudo dnf -y install unzip
 		sudo dnf -y install dunst
 		sudo dnf -y install p7zip
@@ -206,8 +218,12 @@ case $os in
 		sudo apt-get -y install curl
 		sudo apt-get -y install wget
 		sudo apt-get -y install htop
+		sudo apt-get -y install git-flow
+		sudo apt-get -y install mplayer
+		sudo apt-get -y install cmus
 		sudo apt-get -y install highlight highlight-common
 		sudo apt-get -y install cloc
+		sudo apt-get -y install udisks2 udiskie
 		sudo apt-get -y install pandoc
 		sudo apt-get -y install xdotool
 		sudo apt-get -y install dunst
@@ -376,3 +392,8 @@ case $os in
 		sudo apt-get -y install urlview
 		;;
 esac
+
+sudo systemctl stop mpd
+sudo systemctl disable mpd
+sudo systemctl stop transmission
+sudo systemctl disable transmission

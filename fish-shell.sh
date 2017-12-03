@@ -32,6 +32,6 @@ git clone https://github.com/barnybug-archive/docker-fish-completion.git ~/bin/d
 curl --create-dirs -o ~/bin/hub-fish/hub.fish https://raw.githubusercontent.com/github/hub/master/etc/hub.fish_completion
 #transfer.sh alias
 curl --create-dirs -o ~/bin/transfersh/transfer.fish https://gist.githubusercontent.com/nl5887/a511f172d3fb3cd0e42d/raw/d2f8a07aca44aa612b6844d8d5e53a05f5da3420/transfer.fish
-
+curl --create-dirs -o ~/bin/git-flow-fish/git.fish https://raw.githubusercontent.com/bobthecow/git-flow-completion/master/git.fish
 sudo chsh -s /usr/bin/fish $user
 sudo chsh -s /usr/bin/fish root

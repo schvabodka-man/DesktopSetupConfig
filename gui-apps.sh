@@ -71,13 +71,23 @@ case $os in
 esac
 case $os in
 	Debian|Ubuntu)
-		cd ~/bin
-		mkdir qutebrowser
-		cd qutebrowser
-		wget https://qutebrowser.org/python3-pypeg2_2.15.2-1_all.deb
-		wget https://github.com/qutebrowser/qutebrowser/releases/download/v1.0.3/qutebrowser_1.0.3-2_all.deb
-		sudo apt -y install ./python3-pypeg2_*_all.deb
-		sudo apt -y install ./qutebrowser_*_all.deb		
+		# cd ~/bin
+		# mkdir qutebrowser
+		# cd qutebrowser
+		# wget https://qutebrowser.org/python3-pypeg2_2.15.2-1_all.deb
+		# wget https://github.com/qutebrowser/qutebrowser/releases/download/v1.0.3/qutebrowser_1.0.3-2_all.deb
+		# sudo apt -y install ./python3-pypeg2_*_all.deb
+		# sudo apt -y install ./qutebrowser_*_all.deb
+		sudo -H pip3 install qutebrowser
+		sudo apt-get install python3-pyqt5.*
+		;;
+	
+	Fedora)
+		sudo dnf -y install qutebrowser
+		;;
+
+	Arch)
+		sudo pacman -S --noconfirm qutebrowser
 		;;
 esac
 #for development

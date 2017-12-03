@@ -103,3 +103,5 @@ git clone https://github.com/stumpwm/stumpwm-contrib.git ~/stumpwm/contrib
 
 cd ~/bin/
 git clone https://github.com/cdown/clipmenu.git
+
+# git clone https://github.com/carnager/rofi-scripts.git
