@@ -41,20 +41,21 @@ cd ~/Go/bin/
 ./gopm bin github.com/jingweno/ccat
 
 #ls with icons
-# cd ~/bin/
-# git clone https://github.com/sebastiencs/icons-in-terminal.git
-# cd icons-in-terminal
-# fish -c "./install.sh"
-# cd ~/bin/
-# git clone https://github.com/sebastiencs/ls-icons.git
-# cd ls-icons
-# ./bootstrap
-# export CC=clang 
-# export CXX=clang++
-# mkdir binary
-# ./configure --prefix=/home/$user/bin/ls-icons/binary
-# make
-# make install
+sudo apt-get -y install fontforge python-fontforge
+cd ~/bin/
+git clone https://github.com/sebastiencs/icons-in-terminal.git
+cd icons-in-terminal
+./install.sh
+cd ~/bin/
+git clone https://github.com/sebastiencs/ls-icons.git
+cd ls-icons
+./bootstrap
+export CC=clang 
+export CXX=clang++
+mkdir binary
+./configure --prefix=/home/$user/bin/ls-icons/binary
+make
+make install
 
 #alternative. slow
 #sudo gem install colorls

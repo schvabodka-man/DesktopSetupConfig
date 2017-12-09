@@ -59,6 +59,78 @@ esac
 
 case $os in
 	Arch)
+		sudo pacman --noconfirm -S iptables ufw
+		;;
+
+	Debian)
+		sudo apt-get -y install iptables ufw
+		;;
+
+	Fedora)
+		sudo dnf -y install iptables ufw
+		;;
+
+	Ubuntu)
+		sudo apt-get -y install iptables ufw
+		;;
+esac
+
+case $os in
+	Arch)
+		sudo pacman --noconfirm -S syncthing
+		;;
+
+	Debian|Ubuntu)
+		sudo apt-get -y install syncthing
+		;;
+
+	Fedora)
+		sudo dnf -y install syncthing
+		;;
+esac
+
+case $os in
+	Arch)
+		sudo pacman --noconfirm -S syncthing
+		;;
+
+	Debian|Ubuntu)
+		sudo apt-get -y install syncthing
+		;;
+
+	Fedora)
+		sudo dnf -y install syncthing
+		;;
+esac
+
+#pretty neat but no rpm package
+case $os in
+	Arch)
+		yaourt -S --noconfirm sct
+		;;
+
+	Debian|Ubuntu)
+		sudo apt-get -y install sct
+		;;
+
+esac
+
+case $os in
+	Arch)
+		sudo pacman --noconfirm -S ntp
+		;;
+
+	Debian|Ubuntu)
+		sudo apt-get -y install ntp ntpstat
+		;;
+
+	Fedora)
+		sudo dnf -y install ntp
+		;;
+esac
+
+case $os in
+	Arch)
 		sudo pacman --noconfirm -S pass
 		sudo pacman --noconfirm -S tmux
 		sudo pacman --noconfirm -S git

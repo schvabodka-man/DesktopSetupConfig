@@ -47,6 +47,9 @@ sudo apt-get -y install fish
 sudo apt-get -y install fail2ban
 sudo apt-get -y install iptables
 
+sudo systemctl disable transmission-daemon
+sudo systemctl stop transmission-daemon
+
 # should replace this with -i
 sudo sed 's/#\?\(PermitRootLogin\s*\).*$/\1 no/' /etc/ssh/sshd_config > sshd.txt
 sudo mv -f sshd.txt /etc/ssh/sshd_config
@@ -84,6 +87,7 @@ sudo sh -c "echo 'BridgeRelay 1' >> /etc/tor/torrc"
 sudo sh -c "echo 'Exitpolicy reject *:*' >> /etc/tor/torrc"
 sudo sh -c "echo 'ExtORPort auto' >> /etc/tor/torrc"
 sudo sh -c "echo 'ServerTransportPlugin obfs4 exec /usr/bin/obfs4proxy' >> /etc/tor/torrc"
+sudo systemctl enable tor
 
 sudo sh -c 'echo "MAILON=\"always\"" >> /etc/cron-apt/config'
 sudo sh -c 'echo "MAILTO=\"scvhapps@gmail.com\"" >> /etc/cron-apt/config'
