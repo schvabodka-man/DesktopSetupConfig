@@ -5,24 +5,28 @@ os=$(lsb_release -is)
 case $os in
 	Arch)
 		sudo pacman --noconfirm -S gnupg
+		sudo pacman --noconfirm -S consolekit
 		sudo pacman --noconfirm -S pwgen
 		;;
 
 	Debian)
 		sudo apt-get -y install gnupg2
 		sudo apt-get -y install gnupg
+		sudo apt-get -y install consolekit
 		sudo apt-get -y install pwgen
 		;;
 
 	Fedora)
 		sudo dnf -y install gnupg2
 		sudo dnf -y install gnupg
+		sudo dnf -y install consolekit
 		sudo dnf -y install pwgen
 		;;
 
 	Ubuntu)
 		sudo apt-get -y install gnupg2
 		sudo apt-get -y install gnupg
+		sudo apt-get -y install consolekit
 		sudo apt-get -y install pwgen
 		;;
 esac
@@ -157,6 +161,7 @@ case $os in
 		sudo pacman --noconfirm -S youtube-dl
 		sudo pacman --noconfirm -S scrot
 		sudo pacman --noconfirm -S mpv
+		sudo pacman --noconfirm -S rtorrent
 		sudo pacman --noconfirm -S octave
 		sudo pacman --noconfirm -S dzen2
 		sudo pacman --noconfirm -S cmus
@@ -173,6 +178,7 @@ case $os in
 		sudo pacman --noconfirm -S w3m
 		sudo pacman --noconfirm -S libnotify
 		sudo pacman --noconfirm -S xorg-xinit
+		sudo pacman --noconfirm -S unclutter
 		sudo pacman --noconfirm -S rofi
 		yaourt -S --noconfirm neofetch
 		yaourt -S --noconfirm stumpwm
@@ -198,6 +204,7 @@ case $os in
 		sudo apt-get -y install git-flow
 		sudo apt-get -y install neofetch
 		sudo apt-get -y install pandoc
+		sudo apt-get -y install rtorrent
 		sudo apt-get -y install dunst
 		sudo apt-get -y install unrar
 		sudo apt-get -y install unzip
@@ -206,6 +213,7 @@ case $os in
 		sudo apt-get -y install udisks2 udiskie
 		sudo apt-get -y install compton
 		sudo apt-get -y install p7zip
+		sudo apt-get -y install unclutter
 		sudo apt-get -y install inotify-tools
 		sudo apt-get -y install source-highlight
 		sudo apt-get -y install colordiff
@@ -251,6 +259,7 @@ case $os in
 		sudo dnf -y install mplayer
 		sudo dnf -y install unrar
 		sudo dnf -y install octave
+		sudo dnf -y install rtorrent
 		sudo dnf -y install udisks2 udiskie
 		sudo dnf -y install unzip
 		sudo dnf -y install dunst
@@ -272,6 +281,7 @@ case $os in
 		sudo dnf -y install offlineimap
 		sudo dnf -y install ffmpeg
 		sudo dnf -y install w3m
+		sudo dnf -y install unclutter
 		sudo dnf -y install w3m-img
 		;;
 
@@ -293,6 +303,8 @@ case $os in
 		sudo apt-get -y install git-flow
 		sudo apt-get -y install mplayer
 		sudo apt-get -y install cmus
+		sudo apt-get -y install rtorrent
+		sudo apt-get -y install unclutter
 		sudo apt-get -y install highlight highlight-common
 		sudo apt-get -y install cloc
 		sudo apt-get -y install udisks2 udiskie
@@ -378,28 +390,27 @@ case $os in
 		;;
 esac
 
-case $os in
-	Arch)
+# case $os in
+#	Arch)
+#		yaourt -S --noconfirm transmission-remote-gui-gtk2
+#		sudo pacman --noconfirm -S transmission-cli
+#		;;
 
-		yaourt -S --noconfirm transmission-remote-gui-gtk2
-		sudo pacman --noconfirm -S transmission-cli
-		;;
+#	Debian)
+#		sudo apt-get -y install transmission-remote-gtk
+#		sudo apt-get -y install transmission-daemon
+#		;;
 
-	Debian)
-		sudo apt-get -y install transmission-remote-gtk
-		sudo apt-get -y install transmission-daemon
-		;;
+#	Fedora)
+#		sudo dnf -y install transmission-remote-gtk
+#		sudo dnf -y install transmission-daemon
+#		;;
 
-	Fedora)
-		sudo dnf -y install transmission-remote-gtk
-		sudo dnf -y install transmission-daemon
-		;;
-
-	Ubuntu)
-		sudo apt-get -y install transmission-remote-gtk
-		sudo apt-get -y install transmission-daemon
-		;;
-esac
+#	Ubuntu)
+#		sudo apt-get -y install transmission-remote-gtk
+#		sudo apt-get -y install transmission-daemon
+#		;;
+# esac
 
 #parsers for ansiweather
 case $os in
@@ -465,7 +476,7 @@ case $os in
 		;;
 esac
 
-sudo systemctl stop mpd
-sudo systemctl disable mpd
-sudo systemctl stop transmission
-sudo systemctl disable transmission
+# sudo systemctl stop mpd
+# sudo systemctl disable mpd
+# sudo systemctl stop transmission
+# sudo systemctl disable transmission

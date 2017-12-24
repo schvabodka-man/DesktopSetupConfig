@@ -17,40 +17,43 @@
 (eval-when-compile
   (require 'use-package))
 (package-refresh-contents)
-(use-package el-get
-  :ensure t)
+(use-package org
+  :ensure t
+  :pin melpa-stable)
 (use-package elfeed
-  :ensure t)
-(use-package helm
-  :ensure t)
+  :ensure t
+  :config (setq elfeed-db-directory "~/Data/elfeed"))
 (use-package elfeed-org
   :ensure t
-  :config (elfeed-org)
-  (setq rmh-elfeed-org-files (list "~/org-files/Rss.org")))
+  :config (setq rmh-elfeed-org-files (list "~/Data/Share/Org/Util/Rss.org"))
+  (elfeed-org))
 (use-package elfeed-web
   :ensure t)
-(defun bjm/elfeed-save-db-and-bury ()
-  "Wrapper to save the elfeed db to disk before burying buffer"
-  (interactive)
-  (elfeed-db-save)
-  (quit-window))
-(defun bjm/elfeed-load-db-and-open ()
-  "Wrapper to load the elfeed db from disk before opening"
-  (interactive)
-  (elfeed-db-load)
-  (elfeed)
-  (elfeed-search-update--force)
-  (elfeed-update))
-(defun bjm/elfeed-updater ()
-  "Wrapper to load the elfeed db from disk before opening"
-  (interactive)
-  (elfeed-db-save)
-  (quit-window)
-  (elfeed-db-load)
-  (elfeed)
-  (elfeed-search-update--force)
-  (elfeed-update))
-(run-with-timer 0 (* 3 5) 'bjm/elfeed-updater)
-(setq httpd-port 8080)
+;; (defun bjm/elfeed-save-db-and-bury ()
+;;   "Wrapper to save the elfeed db to disk before burying buffer"
+;;   (interactive)
+;;   (print "Saving db")
+;;   (elfeed-db-save)
+;;   (quit-window))
+;; (defun bjm/elfeed-load-db-and-open ()
+;;   "Wrapper to load the elfeed db from disk before opening"
+;;   (interactive)
+;;   (print "Loading db")
+;;   (elfeed-db-load)
+;;   (elfeed)
+;;   (elfeed-search-update--force)
+;;   (elfeed-update))
+;; (defun bjm/elfeed-updater ()
+;;   "Wrapper to load the elfeed db from disk before opening"
+;;   (interactive)
+;;   (print "Updating feed")
+;;   (elfeed-db-save)
+;;   (quit-window)
+;;   (elfeed-db-load)
+;;   (elfeed)
+;;   (elfeed-update)
+;;   (print "Done"))
+;; (bjm/elfeed-updater)
+;; (run-with-timer 0 (* 20 60) 'bjm/elfeed-updater)
+(setq httpd-port 8090)
 (elfeed-web-start)
-;;; init.el ends here

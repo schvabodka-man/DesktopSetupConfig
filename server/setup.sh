@@ -7,16 +7,8 @@ currentusername=$(whoami)
 sudo apt-get -y install pass
 sudo mount /dev/sda1 ~/Data
 
-mkdir ~/.emacs.d/
 mkdir ~/.ssh/
 mkdir ~/Data/
-mkdir ~/aria2
-touch ~/aria2/session
-cp init.el ~/.emacs.d/
-mkdir ~/.config/aria2/
-cp aria2.conf ~/.config/aria2/
-sudo cp running.sh /bin/server-services-startup
-sudo cp update-git-repos.fish /bin/git-update-personal-repos
 
 #keys and shit, stored on seperate flash drive that should be inserted on setup
 cp ~/Data/id_rsa.pub ~/.ssh/authorized_keys
@@ -24,21 +16,14 @@ sudo chmod 600 ~/.ssh/authorized_keys
 #the key is actually used only for aria2 token
 gpg2 --import ~/Data/vanya@server.com.asc
 #trust and shit
-gpg2 --edit-key "vanya@server.com"
+gpg2 --edit-key "vanya@server.com" trust quit
 #unix pass
 cp -r ~/Data/password-store-server .password-store/
 #user passwords
-# echo "$currentusername:$(gpg2 -d ~/Data/upass.gpg)" | sudo chpasswd
-# echo "root:$(gpg2 -d ~/Data/rpass.gpg)" | sudo chpasswd
 sudo passwd root
 sudo passwd $currentusername
 
 sudo apt-get -y install apt-utils
-sudo apt-get -y install emacs
-sudo apt-get -y install calibre
-sudo apt-get -y install aria2
-sudo apt-get -y install transmission-daemon
-sudo apt-get -y install syncthing
 sudo apt-get -y install neofetch
 sudo apt-get -y install cron
 sudo apt-get -y install network-manager
@@ -47,8 +32,8 @@ sudo apt-get -y install fish
 sudo apt-get -y install fail2ban
 sudo apt-get -y install iptables
 
-sudo systemctl disable transmission-daemon
-sudo systemctl stop transmission-daemon
+nmcli connection mod "docker0" ipv4.dns "51.254.25.115 185.121.170.176 188.165.200.156 52.174.55.168"
+nmcli connection mod "Wired connection 1" ipv4.dns "51.254.25.115 185.121.170.176 188.165.200.156 52.174.55.168"
 
 # should replace this with -i
 sudo sed 's/#\?\(PermitRootLogin\s*\).*$/\1 no/' /etc/ssh/sshd_config > sshd.txt
@@ -67,11 +52,6 @@ sudo sed 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd
 sudo mv -f sshd.txt /etc/ssh/sshd_config
 sudo sed 's/#\?\(PubkeyAuthentication\s*\).*$/\1 yes/' /etc/ssh/sshd_config > sshd.txt
 sudo mv -f sshd.txt /etc/ssh/sshd_config
-
-# mkdir ~/bin
-# cd ~/bin/
-# wget -O gitea https://dl.gitea.io/gitea/1.2.3/gitea-1.2.3-linux-arm-7
-# chmod +x gitea
 
 sudo apt-get -y install docker.io
 sudo apt-get -y install docker-compose
@@ -97,8 +77,6 @@ sudo sh -c "echo \"@reboot root mount /dev/sda1 /home/$currentusername/Data\" >>
 sudo sh -c "echo \"*/30 * * * * $currentusername git-update-personal-repos >/dev/null 2>&1\" >> /etc/crontab"
 
 sudo systemctl enable cron
-
-systemctl --user enable syncthing.service
 
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 sudo systemctl enable fail2ban

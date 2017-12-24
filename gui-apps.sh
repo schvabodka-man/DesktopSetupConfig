@@ -168,27 +168,7 @@ case $os in
 		;;
 esac
 
-#slim dm
-case $os in
-	Arch)
-		sudo pacman -S --noconfirm slim
-		;;
-
-	Debian)
-		sudo apt-get -y install slim
-		;;
-
-	Fedora)
-		sudo dnf -y install slim
-		;;
-
-	Ubuntu)
-		sudo apt-get -y install slim
-		;;
-esac
 sudo systemctl disable lightdm
-sudo systemctl enable slim
-
 # cd ~/bin/
 # mkdir palemooninstaller
 # cd palemooninstaller

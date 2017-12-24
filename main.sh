@@ -24,9 +24,13 @@ sh $folder/fonts.sh
 sh $folder/micro-editor.sh
 sh $folder/ide.sh
 
+sh $folder/games.sh
+
 sh $folder/docker-setup.sh
 
-# sh $folder/dns-settings.sh
 sh $folder/restore-configs.sh
+
+nmcli connection mod "docker0" ipv4.dns "51.254.25.115 185.121.170.176 188.165.200.156 52.174.55.168"
+nmcli connection mod "Wired connection 1" ipv4.dns "51.254.25.115 185.121.170.176 188.165.200.156 52.174.55.168"
 
 sbcl --load $folder/quicklispinit.lisp

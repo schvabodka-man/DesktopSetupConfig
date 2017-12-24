@@ -105,4 +105,9 @@ git clone https://github.com/stumpwm/stumpwm-contrib.git ~/stumpwm/contrib
 cd ~/bin/
 git clone https://github.com/cdown/clipmenu.git
 
-# git clone https://github.com/carnager/rofi-scripts.git
+# git clone https://github.com/novoid/Memacs.git ~/bin/memacs
+sudo pip install memacs
+
+# git clone https://github.com/kewlfft/nm-opennic.git ~/bin/nm-opennic/
+# cd ~/bin/nm-opennic/
+# chmod +x opennic.sh
