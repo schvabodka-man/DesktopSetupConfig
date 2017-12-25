@@ -177,6 +177,7 @@ case $os in
 		sudo pacman --noconfirm -S ffmpeg
 		sudo pacman --noconfirm -S w3m
 		sudo pacman --noconfirm -S libnotify
+		sudo pacman --noconfirm -S grabc
 		sudo pacman --noconfirm -S xorg-xinit
 		sudo pacman --noconfirm -S unclutter
 		sudo pacman --noconfirm -S rofi
@@ -225,6 +226,7 @@ case $os in
 		sudo apt-get -y install ffmpeg
 		sudo apt-get -y install dzen2
 		sudo apt-get -y install aria2
+		sudo apt-get -y install grabc
 		sudo apt-get -y install x11-xkb-utils
 		sudo apt-get -y install i3lock
 		sudo apt-get -y install mediainfo
@@ -271,6 +273,7 @@ case $os in
 		sudo dnf -y install youtube-dl
 		sudo dnf -y install libnotify
 		sudo dnf -y install scrot
+		sudo dnf -y install grabc
 		sudo dnf -y install mpv
 		sudo dnf -y install gawk mawk
 		sudo dnf -y install dzen2
@@ -312,6 +315,7 @@ case $os in
 		sudo apt-get -y install xdotool
 		sudo apt-get -y install dunst
 		sudo apt-get -y install inotify-tools
+		sudo apt-get -y install grabc
 		sudo apt-get -y install libnotify-bin
 		sudo apt-get -y install unrar
 		sudo apt-get -y install octave

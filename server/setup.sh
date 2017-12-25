@@ -5,10 +5,11 @@ sudo apt-get -y upgrade
 currentusername=$(whoami)
 
 sudo apt-get -y install pass
-sudo mount /dev/sda1 ~/Data
 
 mkdir ~/.ssh/
 mkdir ~/Data/
+
+sudo mount /dev/sda1 ~/Data
 
 #keys and shit, stored on seperate flash drive that should be inserted on setup
 cp ~/Data/id_rsa.pub ~/.ssh/authorized_keys
@@ -18,7 +19,7 @@ gpg2 --import ~/Data/vanya@server.com.asc
 #trust and shit
 gpg2 --edit-key "vanya@server.com" trust quit
 #unix pass
-cp -r ~/Data/password-store-server .password-store/
+cp -r ~/Data/password-store-server ~/.password-store/
 #user passwords
 sudo passwd root
 sudo passwd $currentusername
@@ -69,12 +70,10 @@ sudo sh -c "echo 'ExtORPort auto' >> /etc/tor/torrc"
 sudo sh -c "echo 'ServerTransportPlugin obfs4 exec /usr/bin/obfs4proxy' >> /etc/tor/torrc"
 sudo systemctl enable tor
 
-sudo sh -c 'echo "MAILON=\"always\"" >> /etc/cron-apt/config'
-sudo sh -c 'echo "MAILTO=\"scvhapps@gmail.com\"" >> /etc/cron-apt/config'
+# sudo sh -c 'echo "MAILON=\"always\"" >> /etc/cron-apt/config'
+# sudo sh -c 'echo "MAILTO=\"scvhapps@gmail.com\"" >> /etc/cron-apt/config'
 
-sudo sh -c "echo \"@reboot $currentusername server-services-startup\" >> /etc/crontab"
 sudo sh -c "echo \"@reboot root mount /dev/sda1 /home/$currentusername/Data\" >> /etc/crontab"
-sudo sh -c "echo \"*/30 * * * * $currentusername git-update-personal-repos >/dev/null 2>&1\" >> /etc/crontab"
 
 sudo systemctl enable cron
 
@@ -83,5 +82,8 @@ sudo systemctl enable fail2ban
 
 sudo chsh -s /usr/bin/fish $currentusername
 sudo chsh -s /usr/bin/fish root
+
+rm -rf ~/.password-store/
+gpg2 --delete-key "vanya@server.com"
 
 sudo reboot
